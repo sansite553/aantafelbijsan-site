@@ -1,0 +1,6 @@
+*.zip
+.DS_Store
+backup-flyer-versie/
+backup-flyer-kader-versie/
+publish-site-20260403/
+menu-data.js
