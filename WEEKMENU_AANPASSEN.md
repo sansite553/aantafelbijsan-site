@@ -14,7 +14,7 @@ Zo werkt het:
 Voorbeeld:
 
 ```txt
-weekLabel: Weekmenu 16
+weekLabel: Weekmenu 17
 servingDate: woensdag 15 april
 dishTitle: Lasagne bolognese
 dishDescription: met frisse salade en kruidenboter
