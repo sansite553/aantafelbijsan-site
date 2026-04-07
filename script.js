@@ -109,6 +109,7 @@ function setUpContent(content) {
   setText("pickupAddress", content.pickupAddress);
   setText("maxPortionsText", content.maxPortionsText);
   setVisibility("pickupAddressItem", Boolean(content.pickupAddress));
+  setVisibility("socialBlock", Boolean(content.instagramUrl));
   setLink("instagramLink", content.instagramUrl, content.instagramLabel);
 
   document.title = `${content.businessName} | ${content.weekLabel}`;
