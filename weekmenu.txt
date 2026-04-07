@@ -4,6 +4,8 @@
 businessName: Aan Tafel Bij San
 businessSubtitle: Wekelijks vers huisgemaakt afhaalmenu
 whatsappNumber: 31619912663
+instagramUrl: https://www.instagram.com/aantafelbijsan?igsh=b2RhMmhzMG9hcHN0&utm_source=qr
+instagramLabel: Volg Aan Tafel Bij San op Instagram
 orderDeadline: uiterlijk maandag voor 20:00
 pickupMoment: woensdag tussen 17:30 - 18:00
 pickupAddress:

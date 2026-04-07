@@ -2,6 +2,8 @@ const fallbackContent = {
   businessName: "Aan Tafel Bij San",
   businessSubtitle: "Wekelijks vers huisgemaakt afhaalmenu",
   whatsappNumber: "31619912663",
+  instagramUrl: "",
+  instagramLabel: "Volg op Instagram",
   orderDeadline: "uiterlijk maandag voor 20:00",
   pickupMoment: "woensdag tussen 17:30 - 18:00",
   pickupAddress: "Bloesemgeel 13, Rosmalen",
@@ -27,6 +29,27 @@ function setVisibility(id, visible) {
   const element = document.getElementById(id);
   if (element) {
     element.hidden = !visible;
+  }
+}
+
+function setLink(id, href, label) {
+  const element = document.getElementById(id);
+  if (!element) {
+    return;
+  }
+
+  const hasHref = Boolean(href);
+  element.hidden = !hasHref;
+
+  if (!hasHref) {
+    element.removeAttribute("href");
+    return;
+  }
+
+  element.href = href;
+
+  if (label) {
+    element.textContent = label;
   }
 }
 
@@ -85,6 +108,7 @@ function setUpContent(content) {
   setText("pickupAddress", content.pickupAddress);
   setText("maxPortionsText", content.maxPortionsText);
   setVisibility("pickupAddressItem", Boolean(content.pickupAddress));
+  setLink("instagramLink", content.instagramUrl, content.instagramLabel);
 
   document.title = `${content.businessName} | ${content.weekLabel}`;
 
