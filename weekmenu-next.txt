@@ -15,7 +15,7 @@ pickupAddress:
 paymentMethod: Betaling vooraf via Tikkie
 weekLabel: Weekmenu 16
 servingDate: woensdag 15 april
-tagline:
+tagline: Aan tafel bij San begint thuis
 dishTitle: Warm flatbread met sticky gehakt, avocado en huisgemaakt citroen-yoghurtsaus
 dishDescription: met frisse little gem salade
 invitation:Eet je mee?
