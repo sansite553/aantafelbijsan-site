@@ -39,6 +39,7 @@ function setPreviewVisibility(visible) {
     return;
   }
 
+  element.textContent = visible ? "Preview van het volgende menu" : "";
   element.classList.toggle("is-visible", visible);
 }
 
