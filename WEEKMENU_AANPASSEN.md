@@ -15,16 +15,13 @@ Zo werkt het:
 
 Handig om te weten:
 
-- In `weekmenu-next.txt` hoef je alleen nog de volgende velden in te vullen:
-  `publishAt`, `weekLabel`, `servingDate`, `dishTitle`, `dishDescription` en `priceText`
-- Alles wat je niet invult, blijft automatisch hetzelfde als op de huidige live site
-- `tagline` en `invitation` kun je alleen invullen als je die ook wilt wijzigen
+- De vaste gegevens staan in `weekmenu-next.txt` al voor je ingevuld
+- Je hoeft meestal alleen `publishAt`, `weekLabel`, `servingDate`, `tagline`, `dishTitle`, `dishDescription`, `invitation` en `priceText` aan te passen
 - Je kunt vooraf een preview bekijken via `https://www.aantafelbijsan.nl/?preview=next`
 
 Voorbeeld:
 
 ```txt
-publishAt: 2026-04-12T11:00:00+02:00
 weekLabel: Weekmenu 17
 servingDate: woensdag 15 april
 dishTitle: Lasagne bolognese
@@ -42,6 +39,7 @@ Belangrijk:
 
 - Laat de woorden links van de `:` staan
 - Laat elke regel op een nieuwe regel staan
-- Laat een regel leeg als je die waarde niet wilt wijzigen
+- Gebruik voor `whatsappNumber` alleen cijfers, zonder spaties of `+`
+- Laat een regel in `weekmenu-next.txt` leeg als die gelijk moet blijven aan het huidige menu
 
 De website leest automatisch `weekmenu.txt` in en schakelt automatisch over naar `weekmenu-next.txt` zodra `publishAt` is bereikt.
