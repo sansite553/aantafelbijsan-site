@@ -14,7 +14,7 @@ pickupMoment: woensdag tussen 17:30 - 18:00
 pickupAddress:
 paymentMethod: Betaling vooraf via Tikkie
 weekLabel: Weekmenu 16
-servingDate:
+servingDate: woensdag 15 april
 tagline:
 dishTitle:
 dishDescription:
