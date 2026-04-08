@@ -19,5 +19,5 @@ tagline:
 dishTitle:
 dishDescription:
 invitation:Eet je mee?
-priceText:
+priceText: € 12,00 per persoon
 maxPortionsText:
