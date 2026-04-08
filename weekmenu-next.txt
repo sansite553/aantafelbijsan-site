@@ -16,8 +16,8 @@ paymentMethod: Betaling vooraf via Tikkie
 weekLabel: Weekmenu 16
 servingDate: woensdag 15 april
 tagline:
-dishTitle:
-dishDescription:
+dishTitle: Warm flatbread met sticky gehakt, avocado en huisgemaakt
+dishDescription: citroen-yoghurtsaus, met frisse little gem salade
 invitation:Eet je mee?
 priceText: € 12,00 per persoon
 maxPortionsText: Maximaal 5 porties, op is op
