@@ -1,23 +1,15 @@
-# Vul hier alvast je volgende menu in.
-# De website zet dit menu automatisch live zodra de datum en tijd bij publishAt is bereikt.
-# Gebruik hiervoor bijvoorbeeld: 2026-04-12T11:00:00+02:00
-# De vaste gegevens zijn alvast ingevuld. Pas vooral het weekmenu en publishAt aan.
+# Vul hier alleen je volgende weekmenu in.
+# Alles wat hier niet staat, blijft automatisch hetzelfde als op de huidige live site.
+# Voor zondag 11:00 gebruik je bijvoorbeeld: 2026-04-12T11:00:00+02:00
+# `dishTitle` en `dishDescription` worden nu in dezelfde stijl getoond.
 
-businessName: Aan Tafel Bij San
-businessSubtitle: Wekelijks vers huisgemaakt afhaalmenu
-whatsappNumber: 31619912663
-instagramUrl: https://www.instagram.com/aantafelbijsan?igsh=b2RhMmhzMG9hcHN0&utm_source=qr
-instagramLabel: Volg Aan Tafel Bij San op Instagram
 publishAt: 2026-04-12T11:00:00+02:00
-orderDeadline: uiterlijk maandag voor 20:00
-pickupMoment: woensdag tussen 17:30 - 18:00
-pickupAddress:
-paymentMethod: Betaling vooraf via Tikkie
-weekLabel: Weekmenu 16
-servingDate: woensdag 15 april
-tagline: Aan tafel bij San begint thuis
-dishTitle: Warm flatbread met sticky gehakt, avocado en huisgemaakt citroen-yoghurtsaus
-dishDescription: met frisse little gem salade
-invitation:Eet je mee?
-priceText: € 12,00 per persoon
-maxPortionsText: Maximaal 5 porties, op is op
+weekLabel:
+servingDate:
+dishTitle:
+dishDescription:
+priceText:
+
+# Optioneel:
+# tagline:
+# invitation:
