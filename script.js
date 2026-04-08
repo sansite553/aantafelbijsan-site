@@ -33,6 +33,15 @@ function setVisibility(id, visible) {
   }
 }
 
+function setPreviewVisibility(visible) {
+  const element = document.getElementById("previewNote");
+  if (!element) {
+    return;
+  }
+
+  element.classList.toggle("is-visible", visible);
+}
+
 function setLink(id, href, label) {
   const element = document.getElementById(id);
   if (!element) {
@@ -111,7 +120,7 @@ function buildWhatsAppMessage(content) {
 function setUpContent(content, options = {}) {
   setText("businessName", content.businessName);
   setText("businessSubtitle", content.businessSubtitle);
-  setVisibility("previewNote", Boolean(options.isPreview));
+  setPreviewVisibility(Boolean(options.isPreview));
   setText("menuWeekLabel", content.weekLabel);
   setText("menuServingDate", content.servingDate);
   setText("menuTagline", content.tagline);
