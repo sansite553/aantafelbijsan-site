@@ -5,6 +5,6 @@
 enabled: false
 startAt:
 endAt:
-title: Ik ben even op vakantie
-message: Vanwege vakantie is bestellen tijdelijk niet mogelijk. Daarna ben ik weer terug met een nieuw weekmenu.
-orderText: Tijdens mijn vakantie neem ik geen bestellingen aan. Via Instagram laat ik weten wanneer ik weer terug ben.
+title: Deze week geen bestelmoment
+message: Bestellen is deze week tijdelijk niet mogelijk. Volgende week ben ik er weer met een nieuw weekmenu.
+orderText: Deze week neem ik geen bestellingen aan. Via Instagram laat ik weten wanneer er weer een nieuw weekmenu klaarstaat.
