@@ -6,8 +6,10 @@ const fallbackContent = {
   instagramLabel: "Volg op Instagram",
   publishAt: "",
   vacationEnabled: "false",
+  vacationKicker: "Tijdelijk geen menu",
   vacationTitle: "Deze week geen bestelmoment",
   vacationMessage: "Bestellen is deze week tijdelijk niet mogelijk. Volgende week ben ik er weer met een nieuw weekmenu.",
+  vacationOrderTitle: "Bestellen tijdelijk gesloten",
   vacationOrderText: "Deze week neem ik geen bestellingen aan. Via Instagram laat ik weten wanneer er weer een nieuw weekmenu klaarstaat.",
   orderDeadline: "uiterlijk maandag voor 20:00",
   pickupMoment: "woensdag tussen 17:30 - 18:00",
@@ -154,8 +156,10 @@ function setUpContent(content, options = {}) {
   setText("pickupMoment", `Afhalen: ${content.pickupMoment}`);
   setText("pickupAddress", content.pickupAddress);
   setText("maxPortionsText", content.maxPortionsText);
+  setText("vacationKicker", content.vacationKicker);
   setText("vacationTitle", content.vacationTitle);
   setText("vacationMessage", content.vacationMessage);
+  setText("vacationOrderTitle", content.vacationOrderTitle);
   setText("vacationOrderText", content.vacationOrderText);
   setVisibility("pickupAddressItem", Boolean(content.pickupAddress));
   setVisibility("socialBlock", Boolean(content.instagramUrl));
@@ -229,8 +233,10 @@ async function loadContent() {
       return {
         content: {
           ...currentContent,
+          vacationKicker: fallbackContent.vacationKicker,
           vacationTitle: vacationContent.title || fallbackContent.vacationTitle,
           vacationMessage: vacationContent.message || fallbackContent.vacationMessage,
+          vacationOrderTitle: fallbackContent.vacationOrderTitle,
           vacationOrderText: vacationContent.orderText || fallbackContent.vacationOrderText
         },
         options: { isPreview: true, isVacation: true, previewLabel: "Preview van vakantiebericht" }
@@ -241,8 +247,10 @@ async function loadContent() {
       return {
         content: {
           ...currentContent,
+          vacationKicker: fallbackContent.vacationKicker,
           vacationTitle: vacationContent.title || fallbackContent.vacationTitle,
           vacationMessage: vacationContent.message || fallbackContent.vacationMessage,
+          vacationOrderTitle: fallbackContent.vacationOrderTitle,
           vacationOrderText: vacationContent.orderText || fallbackContent.vacationOrderText
         },
         options: { isPreview: false, isVacation: true }
