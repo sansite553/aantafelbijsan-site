@@ -79,16 +79,6 @@ function buildWhatsAppMessage(content) {
   ].join("\n");
 }
 
-function setPreviewBanner(visible, label = "") {
-  const banner = document.getElementById("previewBanner");
-  if (!banner) {
-    return;
-  }
-
-  banner.hidden = !visible;
-  banner.textContent = visible ? label : "";
-}
-
 async function loadTextFile(path) {
   const response = await fetch(path, { cache: "no-store" });
 
@@ -138,7 +128,6 @@ async function loadContent() {
 }
 
 function setUpContent(content, isPreview) {
-  setPreviewBanner(isPreview, "Preview van volgende flyer");
   setText("businessName", content.businessName);
   setText("businessSubtitle", content.businessSubtitle);
   setText("menuWeekLabel", content.weekLabel);

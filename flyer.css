@@ -28,17 +28,6 @@ body {
   padding: 34px 22px 40px;
 }
 
-.preview-banner {
-  margin: 0 0 18px;
-  display: inline-flex;
-  padding: 0.45rem 0.9rem;
-  border-radius: 999px;
-  background: rgba(123, 95, 79, 0.08);
-  color: var(--muted);
-  font-size: 0.84rem;
-  font-weight: 700;
-}
-
 .flyer-frame {
   background:
     radial-gradient(circle at top left, rgba(208, 174, 156, 0.12), transparent 28%),
