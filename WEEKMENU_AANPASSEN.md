@@ -45,6 +45,21 @@ Belangrijk:
 
 De website leest automatisch `weekmenu.txt` in en schakelt automatisch over naar `weekmenu-next.txt` zodra `publishAt` is bereikt.
 
+## Flyer voor Instagram
+
+De flyer leest dezelfde menugegevens als je website.
+
+Links:
+
+- Live flyer: `https://www.aantafelbijsan.nl/flyer.html`
+- Preview van volgende flyer: `https://www.aantafelbijsan.nl/flyer.html?preview=next`
+
+Zo hoef je het menu maar op één plek in te vullen:
+
+1. Pas `weekmenu-next.txt` aan
+2. Controleer je website via `?preview=next`
+3. Controleer je flyer via `flyer.html?preview=next`
+
 ## Vakantie instellen
 
 Gebruik hiervoor:

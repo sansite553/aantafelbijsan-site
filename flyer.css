@@ -1,0 +1,235 @@
+:root {
+  --paper: #f4e9de;
+  --paper-deep: #ead9cb;
+  --ink: #171311;
+  --muted: #4e443f;
+  --frame: rgba(123, 95, 79, 0.18);
+  --accent: #8d4a36;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(208, 174, 156, 0.12), transparent 24%),
+    linear-gradient(180deg, #fbf4ec 0%, #f6ede5 100%);
+  color: var(--ink);
+  font-family: "Mulish", sans-serif;
+}
+
+.flyer-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 20px;
+}
+
+.preview-banner {
+  margin: 0;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(141, 74, 54, 0.08);
+  color: var(--accent);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.flyer-frame {
+  width: min(100vw - 40px, 1080px);
+  aspect-ratio: 1 / 1;
+  background:
+    radial-gradient(circle at top left, rgba(208, 174, 156, 0.12), transparent 28%),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  border: 1px solid var(--frame);
+  box-shadow:
+    0 20px 55px rgba(78, 58, 47, 0.12),
+    0 2px 10px rgba(78, 58, 47, 0.05);
+  padding: clamp(28px, 4vw, 42px);
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+}
+
+.flyer-header {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+}
+
+.brand-seal {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.brand-seal img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.brand-copy {
+  min-width: 0;
+}
+
+h1,
+.subtitle,
+.week-line,
+.price,
+.payment-note,
+.details-list {
+  font-family: "Cormorant Garamond", serif;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.2rem, 4.4vw, 4.2rem);
+  line-height: 0.9;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  margin: 14px 0 0;
+  font-size: clamp(1.45rem, 2.6vw, 2.2rem);
+  line-height: 1.06;
+  color: var(--muted);
+}
+
+.flyer-menu {
+  padding-top: clamp(38px, 7vw, 82px);
+  text-align: center;
+}
+
+.week-line {
+  margin: 0;
+  font-size: clamp(2rem, 4.2vw, 3.2rem);
+  line-height: 1.02;
+  color: var(--muted);
+  text-wrap: balance;
+}
+
+.tagline {
+  margin: clamp(34px, 5vw, 54px) 0 0;
+  font-size: clamp(1.6rem, 2.7vw, 2.35rem);
+  font-style: italic;
+  font-weight: 800;
+  text-wrap: balance;
+}
+
+.menu-copy {
+  margin: clamp(60px, 8vw, 100px) auto 0;
+  max-width: 27ch;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.12;
+  color: var(--muted);
+  text-wrap: balance;
+}
+
+.menu-copy span {
+  display: block;
+}
+
+#menuDishDescription {
+  margin-top: 0.15em;
+}
+
+.invitation {
+  margin: clamp(44px, 6vw, 70px) 0 0;
+  font-size: clamp(1.85rem, 2.8vw, 2.45rem);
+  font-style: italic;
+  font-weight: 800;
+}
+
+.flyer-details {
+  margin-top: auto;
+  text-align: center;
+}
+
+.price {
+  margin: 0;
+  font-size: clamp(2.6rem, 4.8vw, 4rem);
+  line-height: 1;
+  font-weight: 700;
+}
+
+.payment-note {
+  margin: 4px 0 0;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1.06;
+  font-style: italic;
+}
+
+.details-list {
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+  font-size: clamp(1.45rem, 2.3vw, 2.15rem);
+  line-height: 1.35;
+}
+
+.details-list li + li {
+  margin-top: 10px;
+}
+
+.separator {
+  margin: 0 0.45rem;
+  opacity: 0.45;
+}
+
+.flyer-footer {
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(123, 95, 79, 0.12);
+  text-align: center;
+}
+
+.instagram-line {
+  margin: 0;
+  color: var(--accent);
+  font-size: clamp(1rem, 1.5vw, 1.35rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 760px) {
+  .flyer-frame {
+    width: min(100vw - 24px, 760px);
+    padding: 22px 18px;
+  }
+
+  .flyer-header {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .brand-seal {
+    width: 90px;
+    height: 90px;
+  }
+
+  .menu-copy {
+    max-width: 22ch;
+  }
+
+  .separator {
+    display: none;
+  }
+
+  .details-list li span {
+    display: block;
+  }
+}
