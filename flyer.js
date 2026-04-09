@@ -89,10 +89,13 @@ async function loadTextFile(path) {
 function setShareLinks(content, isPreview) {
   const shareWhatsApp = document.getElementById("shareWhatsApp");
   const shareMail = document.getElementById("shareMail");
+  const sharePanel = document.getElementById("sharePanel");
 
-  if (!shareWhatsApp || !shareMail) {
+  if (!shareWhatsApp || !shareMail || !sharePanel) {
     return;
   }
+
+  sharePanel.hidden = !isPreview;
 
   const shareUrl = new URL(window.location.href);
 
