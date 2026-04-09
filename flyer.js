@@ -86,37 +86,6 @@ async function loadTextFile(path) {
   return response.text();
 }
 
-function setShareLinks(content, isPreview) {
-  const shareWhatsApp = document.getElementById("shareWhatsApp");
-  const shareMail = document.getElementById("shareMail");
-  const sharePanel = document.getElementById("sharePanel");
-
-  if (!shareWhatsApp || !shareMail || !sharePanel) {
-    return;
-  }
-
-  sharePanel.hidden = !isPreview;
-
-  const shareUrl = new URL(window.location.href);
-
-  if (!isPreview) {
-    shareUrl.searchParams.delete("preview");
-  }
-
-  const cleanUrl = shareUrl.toString();
-  const shareLabel = isPreview ? "de preview van mijn volgende flyer" : "mijn flyer";
-  const whatsAppText = encodeURIComponent(
-    `Hier is ${shareLabel} van ${content.businessName}: ${cleanUrl}`
-  );
-  const mailSubject = encodeURIComponent(`${content.businessName} | ${content.weekLabel} flyer`);
-  const mailBody = encodeURIComponent(
-    `Hier is ${shareLabel} van ${content.businessName}:\n\n${cleanUrl}`
-  );
-
-  shareWhatsApp.href = `https://wa.me/?text=${whatsAppText}`;
-  shareMail.href = `mailto:?subject=${mailSubject}&body=${mailBody}`;
-}
-
 async function loadContent() {
   const previewMode = getPreviewMode();
   let currentContent = fallbackContent;
@@ -157,7 +126,6 @@ async function loadContent() {
 
 function setUpContent(content, isPreview) {
   setPreviewBanner(isPreview, "Preview van volgende flyer");
-  setShareLinks(content, isPreview);
   setText("businessName", content.businessName);
   setText("businessSubtitle", content.businessSubtitle);
   setText("menuWeekLabel", content.weekLabel);
