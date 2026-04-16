@@ -11,11 +11,11 @@ orderDeadline: uiterlijk maandag voor 20:00
 pickupMoment: woensdag tussen 17:30 - 18:00
 pickupAddress:
 paymentMethod: Betaling vooraf via Tikkie
-weekLabel: Weekmenu 15
-servingDate: woensdag 8 april
-tagline: Even niet koken, wel genieten
-dishTitle: Kippendij in romige champignonsaus
-dishDescription: met oregano-krieltjes en boontjes met knoflook
-invitation: Eet je mee?
+weekLabel: Weekmenu 16
+servingDate: woensdag 15 april
+tagline: Aan tafel bij San begint thuis
+dishTitle: Warm flatbread met sticky gehakt, avocado, huisgemaakte citroen-yoghurtsaus en frisse little gem salade
+dishDescription:
+invitation:Eet je mee?
 priceText: € 12,00 per persoon
 maxPortionsText: Maximaal 5 porties, op is op
