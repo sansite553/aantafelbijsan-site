@@ -136,6 +136,7 @@ function setUpContent(content, options = {}) {
   setText("maxPortionsText", content.maxPortionsText);
   setVisibility("pickupAddressItem", Boolean(content.pickupAddress));
   setVisibility("socialBlock", Boolean(content.instagramUrl));
+  setVisibility("aboutSection", Boolean(options.showAbout));
   setLink("instagramLink", content.instagramUrl, content.instagramLabel);
 
   document.title = `${content.businessName} | ${content.weekLabel}`;
@@ -180,14 +181,18 @@ async function loadContent() {
     if (previewMode === "next") {
       return {
         content: scheduledContent,
-        options: { isPreview: true, previewLabel: "Preview van het volgende menu" }
+        options: {
+          isPreview: true,
+          previewLabel: "Preview van het volgende menu",
+          showAbout: true
+        }
       };
     }
 
     if (isScheduledMenuLive(scheduledContent)) {
       return {
         content: scheduledContent,
-        options: { isPreview: false }
+        options: { isPreview: false, showAbout: true }
       };
     }
   } catch (error) {
