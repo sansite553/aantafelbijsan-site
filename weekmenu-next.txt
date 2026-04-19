@@ -8,16 +8,19 @@ businessSubtitle: Wekelijks vers huisgemaakt afhaalmenu
 whatsappNumber: 31619912663
 instagramUrl: https://www.instagram.com/aantafelbijsan?igsh=b2RhMmhzMG9hcHN0&utm_source=qr
 instagramLabel: Volg Aan Tafel Bij San op Instagram
-publishAt: 2026-04-19T11:00:00+02:00
-orderDeadline: uiterlijk maandag voor 20:00
-pickupMoment: woensdag tussen 17:30 - 18:00
+publishAt: 2026-04-26T11:00:00+02:00
+orderDeadline:
+pickupMoment:
 pickupAddress:
-paymentMethod: Betaling vooraf via Tikkie
-weekLabel: Weekmenu 17
-servingDate: woensdag 22 april
-tagline: Een warme favoriet voor aan tafel
-dishTitle: Rigatoni al forno in romige tomatensaus met
-dishDescription: spekjes, spinazie, mozzarella en Parmezaan
-invitation:Eet je mee?
-priceText: € 12,00 per persoon
-maxPortionsText: Maximaal 5 porties, op is op
+paymentMethod:
+weekLabel: Deze week geen weekmenu
+servingDate: woensdag 29 april
+tagline: Ik sla een weekje over
+dishTitle: Woensdag 6 mei ben ik er weer
+dishDescription: met een lekker nieuw gerecht
+invitation: Tot snel aan tafel
+orderLabel: Geen bestellingen
+priceText: Geen bestelmoment deze week
+maxPortionsText: Vanaf woensdag 6 mei ben ik er weer met een nieuw weekmenu.
+orderingEnabled: false
+trustNote: Deze week neem ik geen bestellingen aan. Woensdag 6 mei ben ik er weer met een lekker gerecht.

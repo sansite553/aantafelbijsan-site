@@ -15,8 +15,11 @@ const fallbackContent = {
   dishTitle: "Kippendij in romige champignonsaus",
   dishDescription: "met oregano-krieltjes en boontjes met knoflook",
   invitation: "Eet je mee?",
+  orderLabel: "Bestellen",
   priceText: "€ 12,00 per persoon",
-  maxPortionsText: "Maximaal 5 porties, op is op"
+  maxPortionsText: "Maximaal 5 porties, op is op",
+  orderingEnabled: "true",
+  trustNote: "Je bestelling komt direct bij mij binnen via WhatsApp."
 };
 
 function setText(id, value) {
@@ -119,6 +122,8 @@ function buildWhatsAppMessage(content) {
 }
 
 function setUpContent(content, options = {}) {
+  const orderingEnabled = content.orderingEnabled !== "false";
+
   setText("businessName", content.businessName);
   setText("businessSubtitle", content.businessSubtitle);
   setPreviewVisibility(Boolean(options.isPreview), options.previewLabel || "Preview");
@@ -128,13 +133,19 @@ function setUpContent(content, options = {}) {
   setText("menuDishTitle", content.dishTitle);
   setText("menuDishDescription", content.dishDescription);
   setText("menuInvitation", content.invitation);
+  setText("orderLabel", content.orderLabel);
   setText("menuPrice", content.priceText);
   setText("paymentMethod", content.paymentMethod);
   setText("orderDeadline", `Bestellen: ${content.orderDeadline}`);
   setText("pickupMoment", `Afhalen: ${content.pickupMoment}`);
   setText("pickupAddress", content.pickupAddress);
   setText("maxPortionsText", content.maxPortionsText);
-  setVisibility("pickupAddressItem", Boolean(content.pickupAddress));
+  setText("trustNote", content.trustNote);
+  setVisibility("paymentMethod", Boolean(content.paymentMethod));
+  setVisibility("orderDeadline", orderingEnabled && Boolean(content.orderDeadline));
+  setVisibility("pickupMomentItem", orderingEnabled && Boolean(content.pickupMoment));
+  setVisibility("pickupAddressItem", orderingEnabled && Boolean(content.pickupAddress));
+  setVisibility("maxPortionsText", Boolean(content.maxPortionsText));
   setVisibility("socialBlock", Boolean(content.instagramUrl));
   setVisibility("aboutSection", Boolean(options.showAbout));
   setLink("instagramLink", content.instagramUrl, content.instagramLabel);
@@ -147,10 +158,16 @@ function setUpContent(content, options = {}) {
     return `https://wa.me/${content.whatsappNumber}?text=${message}`;
   };
 
-  whatsAppLink.href = buildFreshWhatsAppUrl();
-  whatsAppLink.addEventListener("click", () => {
+  if (orderingEnabled) {
+    whatsAppLink.hidden = false;
     whatsAppLink.href = buildFreshWhatsAppUrl();
-  });
+    whatsAppLink.addEventListener("click", () => {
+      whatsAppLink.href = buildFreshWhatsAppUrl();
+    });
+  } else {
+    whatsAppLink.hidden = true;
+    whatsAppLink.removeAttribute("href");
+  }
 }
 
 async function loadTextFile(path) {
@@ -201,7 +218,7 @@ async function loadContent() {
 
   return {
     content: currentContent,
-    options: { isPreview: false }
+    options: { isPreview: false, showAbout: true }
   };
 }
 

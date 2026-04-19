@@ -11,11 +11,14 @@ orderDeadline: uiterlijk maandag voor 20:00
 pickupMoment: woensdag tussen 17:30 - 18:00
 pickupAddress:
 paymentMethod: Betaling vooraf via Tikkie
-weekLabel: Weekmenu 16
-servingDate: woensdag 15 april
-tagline: Aan tafel bij San begint thuis
-dishTitle: Warm flatbread met sticky gehakt, avocado, huisgemaakte citroen-yoghurtsaus en frisse little gem salade
-dishDescription:
+weekLabel: Weekmenu 17
+servingDate: woensdag 22 april
+tagline: Een warme favoriet voor aan tafel
+dishTitle: Rigatoni al forno in romige tomatensaus met
+dishDescription: spekjes, spinazie, mozzarella en Parmezaan
 invitation:Eet je mee?
+orderLabel: Bestellen
 priceText: € 12,00 per persoon
 maxPortionsText: Maximaal 5 porties, op is op
+orderingEnabled: true
+trustNote: Je bestelling komt direct bij mij binnen via WhatsApp.
