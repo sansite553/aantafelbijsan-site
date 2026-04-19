@@ -22,6 +22,19 @@ const fallbackContent = {
   trustNote: "Je bestelling komt direct bij mij binnen via WhatsApp."
 };
 
+const scheduledMenuFiles = [
+  {
+    path: "weekmenu-next.txt",
+    preview: "next",
+    previewLabel: "Preview van het volgende menu"
+  },
+  {
+    path: "weekmenu-2026-05-03.txt",
+    preview: "weekmenu-19",
+    previewLabel: "Preview van weekmenu 19"
+  }
+];
+
 function setText(id, value) {
   const element = document.getElementById(id);
   if (element) {
@@ -96,12 +109,16 @@ function parseWeekmenuText(text, baseContent = fallbackContent) {
 }
 
 function isScheduledMenuLive(content) {
+  const publishTime = getPublishTime(content);
+  return Number.isFinite(publishTime) && Date.now() >= publishTime;
+}
+
+function getPublishTime(content) {
   if (!content.publishAt) {
-    return false;
+    return Number.NaN;
   }
 
-  const publishTime = Date.parse(content.publishAt);
-  return Number.isFinite(publishTime) && Date.now() >= publishTime;
+  return Date.parse(content.publishAt);
 }
 
 function getPreviewMode() {
@@ -180,6 +197,43 @@ async function loadTextFile(path) {
   return response.text();
 }
 
+async function loadScheduledMenus(currentContent) {
+  const menus = await Promise.all(
+    scheduledMenuFiles.map(async (scheduledFile) => {
+      try {
+        const text = await loadTextFile(scheduledFile.path);
+        const content = parseWeekmenuText(text, currentContent);
+        const publishTime = getPublishTime(content);
+
+        if (!Number.isFinite(publishTime)) {
+          return null;
+        }
+
+        return {
+          ...scheduledFile,
+          content,
+          publishTime
+        };
+      } catch (error) {
+        return null;
+      }
+    })
+  );
+
+  return menus
+    .filter(Boolean)
+    .sort((firstMenu, secondMenu) => firstMenu.publishTime - secondMenu.publishTime);
+}
+
+function findNextScheduledMenu(scheduledMenus) {
+  return scheduledMenus.find((menu) => !isScheduledMenuLive(menu.content));
+}
+
+function findLiveScheduledMenu(scheduledMenus) {
+  const liveMenus = scheduledMenus.filter((menu) => isScheduledMenuLive(menu.content));
+  return liveMenus[liveMenus.length - 1];
+}
+
 async function loadContent() {
   const previewMode = getPreviewMode();
   let currentContent = fallbackContent;
@@ -191,29 +245,33 @@ async function loadContent() {
     currentContent = fallbackContent;
   }
 
-  try {
-    const scheduledText = await loadTextFile("weekmenu-next.txt");
-    const scheduledContent = parseWeekmenuText(scheduledText, currentContent);
+  const scheduledMenus = await loadScheduledMenus(currentContent);
 
-    if (previewMode === "next") {
+  if (previewMode) {
+    const previewMenu =
+      previewMode === "next"
+        ? findNextScheduledMenu(scheduledMenus)
+        : scheduledMenus.find((menu) => menu.preview === previewMode);
+
+    if (previewMenu) {
       return {
-        content: scheduledContent,
+        content: previewMenu.content,
         options: {
           isPreview: true,
-          previewLabel: "Preview van het volgende menu",
+          previewLabel: previewMenu.previewLabel,
           showAbout: true
         }
       };
     }
+  }
 
-    if (isScheduledMenuLive(scheduledContent)) {
-      return {
-        content: scheduledContent,
-        options: { isPreview: false, showAbout: true }
-      };
-    }
-  } catch (error) {
-    // Geen gepland menu gevonden; gebruik gewoon het live menu.
+  const liveScheduledMenu = findLiveScheduledMenu(scheduledMenus);
+
+  if (liveScheduledMenu) {
+    return {
+      content: liveScheduledMenu.content,
+      options: { isPreview: false, showAbout: true }
+    };
   }
 
   return {

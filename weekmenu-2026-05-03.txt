@@ -1,0 +1,25 @@
+# Concept voor zondag 3 mei 2026 om 11:00.
+# Dit bestand is alvast klaargezet, zodat het echte menu later alleen nog ingevuld hoeft te worden.
+# Preview-link: https://www.aantafelbijsan.nl/?preview=weekmenu-19
+
+businessName: Aan Tafel Bij San
+businessSubtitle: Wekelijks vers huisgemaakt afhaalmenu
+whatsappNumber: 31619912663
+instagramUrl: https://www.instagram.com/aantafelbijsan?igsh=b2RhMmhzMG9hcHN0&utm_source=qr
+instagramLabel: Volg Aan Tafel Bij San op Instagram
+publishAt: 2026-05-03T11:00:00+02:00
+orderDeadline:
+pickupMoment:
+pickupAddress:
+paymentMethod:
+weekLabel: Weekmenu 19
+servingDate: woensdag 6 mei
+tagline: Binnenkort weer iets lekkers voor aan tafel
+dishTitle: Nieuw weekmenu volgt
+dishDescription: het gerecht wordt nog ingevuld
+invitation: Binnenkort meer
+orderLabel: Nog niet bestellen
+priceText: Menu volgt binnenkort
+maxPortionsText: Het menu voor woensdag 6 mei wordt nog ingevuld.
+orderingEnabled: false
+trustNote: Dit is alvast een concept-preview. Zodra het menu definitief is, kan bestellen weer via WhatsApp.
