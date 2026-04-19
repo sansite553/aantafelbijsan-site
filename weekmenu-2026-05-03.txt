@@ -14,12 +14,12 @@ pickupAddress:
 paymentMethod:
 weekLabel: Weekmenu 19
 servingDate: woensdag 6 mei
-tagline: Binnenkort weer iets lekkers voor aan tafel
-dishTitle: Nieuw weekmenu volgt
-dishDescription: het gerecht wordt nog ingevuld
+tagline: Een warme favoriet voor aan tafel
+dishTitle: Rendang met rijst
+dishDescription: de rest van het gerecht wordt nog ingevuld
 invitation: Binnenkort meer
 orderLabel: Nog niet bestellen
 priceText: Menu volgt binnenkort
-maxPortionsText: Het menu voor woensdag 6 mei wordt nog ingevuld.
+maxPortionsText: Het menu voor woensdag 6 mei wordt nog verder aangevuld.
 orderingEnabled: false
 trustNote: Dit is alvast een concept-preview. Zodra het menu definitief is, kan bestellen weer via WhatsApp.
