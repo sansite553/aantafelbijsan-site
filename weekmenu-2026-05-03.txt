@@ -15,8 +15,8 @@ paymentMethod:
 weekLabel: Weekmenu 19
 servingDate: woensdag 6 mei
 tagline: Een warme favoriet voor aan tafel
-dishTitle: Rendang met rijst
-dishDescription: de rest van het gerecht wordt nog ingevuld
+dishTitle: Rendang met basmati rijst en
+dishDescription: Terong Tjoloh-Tjoloh (gebakken aubergine met koude ketjapsaus)
 invitation: Binnenkort meer
 orderLabel: Nog niet bestellen
 priceText: Menu volgt binnenkort
