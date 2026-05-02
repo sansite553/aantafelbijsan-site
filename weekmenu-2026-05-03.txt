@@ -14,7 +14,7 @@ pickupAddress:
 paymentMethod: Betaling vooraf via Tikkie
 weekLabel: Weekmenu 19
 servingDate: woensdag 6 mei
-tagline: Een warme favoriet voor aan tafel
+tagline: Met aandacht gemaakt, om van te genieten.
 dishTitle: Rendang met basmati rijst, Terong Tjoloh-Tjoloh
 dishDescription: (gebakken aubergine met koude ketjapsaus) en emping
 invitation: Eet je mee?
