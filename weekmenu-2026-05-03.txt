@@ -8,18 +8,18 @@ whatsappNumber: 31619912663
 instagramUrl: https://www.instagram.com/aantafelbijsan?igsh=b2RhMmhzMG9hcHN0&utm_source=qr
 instagramLabel: Volg Aan Tafel Bij San op Instagram
 publishAt: 2026-05-03T11:00:00+02:00
-orderDeadline:
-pickupMoment:
+orderDeadline: uiterlijk maandag voor 20:00
+pickupMoment: woensdag tussen 17:30 - 18:00
 pickupAddress:
-paymentMethod:
+paymentMethod: Betaling vooraf via Tikkie
 weekLabel: Weekmenu 19
 servingDate: woensdag 6 mei
 tagline: Een warme favoriet voor aan tafel
-dishTitle: Rendang met basmati rijst en
-dishDescription: Terong Tjoloh-Tjoloh (gebakken aubergine met koude ketjapsaus)
-invitation: Binnenkort meer
-orderLabel: Nog niet bestellen
-priceText: Menu volgt binnenkort
-maxPortionsText: Het menu voor woensdag 6 mei wordt nog verder aangevuld.
-orderingEnabled: false
-trustNote: Dit is alvast een concept-preview. Zodra het menu definitief is, kan bestellen weer via WhatsApp.
+dishTitle: Rendang met basmati rijst, Terong Tjoloh-Tjoloh
+dishDescription: (gebakken aubergine met koude ketjapsaus) en emping
+invitation: Eet je mee?
+orderLabel: Bestellen
+priceText: € 12,00 per persoon
+maxPortionsText: Maximaal 5 porties, op is op
+orderingEnabled: true
+trustNote: Je bestelling komt direct bij mij binnen via WhatsApp.
