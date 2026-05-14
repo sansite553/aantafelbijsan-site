@@ -15,6 +15,18 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css?v=20260417-about" />
+    <style>
+      body.content-loading .hero-layout,
+      body.content-loading .about-section {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .hero-layout,
+      .about-section {
+        transition: opacity 140ms ease;
+      }
+    </style>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXZGYY1SLQ"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -25,7 +37,7 @@
       gtag("config", "G-FXZGYY1SLQ");
     </script>
   </head>
-  <body>
+  <body class="content-loading">
     <main class="page">
       <header class="brand-header">
         <div class="brand-seal" aria-hidden="true">
@@ -44,17 +56,17 @@
         <section class="menu-card">
           <div id="menuContent">
             <p class="week-line">
-              <span id="menuWeekLabel">Weekmenu 15</span>
+              <span id="menuWeekLabel">Weekmenu 20</span>
               <span aria-hidden="true">|</span>
-              <span id="menuServingDate">woensdag 8 april</span>
+              <span id="menuServingDate">woensdag 13 mei</span>
             </p>
 
             <p class="local-note">Huisgemaakt afhaalmenu in Rosmalen</p>
-            <p class="tagline" id="menuTagline">Even niet koken, wel genieten</p>
+            <p class="tagline" id="menuTagline">Lente aan tafel bij San</p>
 
             <p class="menu-sentence">
-              <span id="menuDishTitle">Kippendij in romige champignonsaus</span>
-              <span id="menuDishDescription">met oregano-krieltjes en boontjes met knoflook</span>
+              <span id="menuDishTitle">Citroen-kippendij met orzo,</span>
+              <span id="menuDishDescription">groene asperges &amp; Parmezaan ð</span>
             </p>
             <p class="invitation" id="menuInvitation">Eet je mee?</p>
           </div>
@@ -64,7 +76,7 @@
         <aside class="order-card">
           <div id="orderContent">
             <p class="order-label" id="orderLabel">Bestellen</p>
-            <p class="price" id="menuPrice">€ 12,00 per persoon</p>
+            <p class="price" id="menuPrice">â¬ 12,00 per persoon</p>
             <p class="payment-note" id="paymentMethod">Betaling vooraf via Tikkie</p>
 
             <ul class="details-list">
