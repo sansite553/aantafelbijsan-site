@@ -9,14 +9,14 @@ const fallbackContent = {
   pickupMoment: "woensdag tussen 17:30 - 18:00",
   pickupAddress: "Bloesemgeel 13, Rosmalen",
   paymentMethod: "Betaling vooraf via Tikkie",
-  weekLabel: "Weekmenu 15",
-  servingDate: "woensdag 8 april",
-  tagline: "Even niet koken, wel genieten",
-  dishTitle: "Kippendij in romige champignonsaus",
-  dishDescription: "met oregano-krieltjes en boontjes met knoflook",
+  weekLabel: "Weekmenu 20",
+  servingDate: "woensdag 13 mei",
+  tagline: "Lente aan tafel bij San",
+  dishTitle: "Citroen-kippendij met orzo,",
+  dishDescription: "groene asperges & Parmezaan ð",
   invitation: "Eet je mee?",
   orderLabel: "Bestellen",
-  priceText: "€ 12,00 per persoon",
+  priceText: "â¬ 12,00 per persoon",
   maxPortionsText: "Maximaal 5 porties, op is op",
   orderingEnabled: "true",
   trustNote: "Je bestelling komt direct bij mij binnen via WhatsApp."
@@ -34,6 +34,11 @@ const scheduledMenuFiles = [
     previewLabel: "Preview van weekmenu 19"
   }
 ];
+
+function markContentReady() {
+  document.body.classList.remove("content-loading");
+  document.body.classList.add("content-ready");
+}
 
 function setText(id, value) {
   const element = document.getElementById(id);
@@ -185,6 +190,8 @@ function setUpContent(content, options = {}) {
     whatsAppLink.hidden = true;
     whatsAppLink.removeAttribute("href");
   }
+
+  markContentReady();
 }
 
 async function loadTextFile(path) {
@@ -280,4 +287,8 @@ async function loadContent() {
   };
 }
 
-loadContent().then(({ content, options }) => setUpContent(content, options));
+loadContent()
+  .then(({ content, options }) => setUpContent(content, options))
+  .catch(() => {
+    setUpContent(fallbackContent, { isPreview: false, showAbout: true });
+  });
