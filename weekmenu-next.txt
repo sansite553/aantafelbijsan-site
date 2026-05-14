@@ -8,19 +8,19 @@ businessSubtitle: Wekelijks vers huisgemaakt afhaalmenu
 whatsappNumber: 31619912663
 instagramUrl: https://www.instagram.com/aantafelbijsan?igsh=b2RhMmhzMG9hcHN0&utm_source=qr
 instagramLabel: Volg Aan Tafel Bij San op Instagram
-publishAt: 2026-05-10T11:00:00+02:00
+publishAt: 2026-05-17T11:00:00+02:00
 orderDeadline: uiterlijk maandag voor 20:00
 pickupMoment: woensdag tussen 17:30 - 18:00
 pickupAddress:
 paymentMethod: Betaling vooraf via Tikkie
-weekLabel: Weekmenu 20
-servingDate: woensdag 13 mei
-tagline: Lente aan tafel bij San
-dishTitle: Citroen-kippendij met orzo,
-dishDescription: groene asperges & Parmezaan 🍋
+weekLabel: Weekmenu 21
+servingDate: woensdag 20 mei
+tagline: Fris comfort food
+dishTitle: Zomerse salade met gebakken perzik,
+dishDescription: feta, serranoham en gebakken krieltjes
 invitation: Eet je mee?
 orderLabel: Bestellen
-priceText: € 12,00 per persoon
+priceText: â¬ 12,00 per persoon
 maxPortionsText: Maximaal 5 porties, op is op
 orderingEnabled: true
 trustNote: Je bestelling komt direct bij mij binnen via WhatsApp.
