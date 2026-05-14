@@ -11,14 +11,14 @@ orderDeadline: uiterlijk maandag voor 20:00
 pickupMoment: woensdag tussen 17:30 - 18:00
 pickupAddress:
 paymentMethod: Betaling vooraf via Tikkie
-weekLabel: Weekmenu 17
-servingDate: woensdag 22 april
-tagline: Een warme favoriet voor aan tafel
-dishTitle: Rigatoni al forno in romige tomatensaus met
-dishDescription: spekjes, spinazie, mozzarella en Parmezaan
+weekLabel: Weekmenu 20
+servingDate: woensdag 13 mei
+tagline: Lente aan tafel bij San
+dishTitle: Citroen-kippendij met orzo,
+dishDescription: groene asperges & Parmezaan ð
 invitation:Eet je mee?
 orderLabel: Bestellen
-priceText: € 12,00 per persoon
+priceText: â¬ 12,00 per persoon
 maxPortionsText: Maximaal 5 porties, op is op
 orderingEnabled: true
 trustNote: Je bestelling komt direct bij mij binnen via WhatsApp.
