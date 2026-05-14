@@ -20,7 +20,7 @@ dishTitle: Zomerse salade met gebakken perzik,
 dishDescription: feta, serranoham en gebakken krieltjes
 invitation: Eet je mee?
 orderLabel: Bestellen
-priceText: â¬ 12,00 per persoon
+priceText: € 12,00 per persoon
 maxPortionsText: Maximaal 5 porties, op is op
 orderingEnabled: true
 trustNote: Je bestelling komt direct bij mij binnen via WhatsApp.
