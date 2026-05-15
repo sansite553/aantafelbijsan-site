@@ -13,10 +13,10 @@ const fallbackContent = {
   servingDate: "woensdag 13 mei",
   tagline: "Lente aan tafel bij San",
   dishTitle: "Citroen-kippendij met orzo,",
-  dishDescription: "groene asperges & Parmezaan ð",
+  dishDescription: "groene asperges & Parmezaan 🍋",
   invitation: "Eet je mee?",
   orderLabel: "Bestellen",
-  priceText: "â¬ 12,00 per persoon",
+  priceText: "€ 12,00 per persoon",
   maxPortionsText: "Maximaal 5 porties, op is op",
   orderingEnabled: "true",
   trustNote: "Je bestelling komt direct bij mij binnen via WhatsApp."
@@ -236,11 +236,6 @@ function findNextScheduledMenu(scheduledMenus) {
   return scheduledMenus.find((menu) => !isScheduledMenuLive(menu.content));
 }
 
-function findLiveScheduledMenu(scheduledMenus) {
-  const liveMenus = scheduledMenus.filter((menu) => isScheduledMenuLive(menu.content));
-  return liveMenus[liveMenus.length - 1];
-}
-
 async function loadContent() {
   const previewMode = getPreviewMode();
   let currentContent = fallbackContent;
@@ -270,15 +265,6 @@ async function loadContent() {
         }
       };
     }
-  }
-
-  const liveScheduledMenu = findLiveScheduledMenu(scheduledMenus);
-
-  if (liveScheduledMenu) {
-    return {
-      content: liveScheduledMenu.content,
-      options: { isPreview: false, showAbout: true }
-    };
   }
 
   return {
