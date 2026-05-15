@@ -15,10 +15,10 @@ weekLabel: Weekmenu 20
 servingDate: woensdag 13 mei
 tagline: Lente aan tafel bij San
 dishTitle: Citroen-kippendij met orzo,
-dishDescription: groene asperges & Parmezaan ð
+dishDescription: groene asperges & Parmezaan 🍋
 invitation:Eet je mee?
 orderLabel: Bestellen
-priceText: â¬ 12,00 per persoon
+priceText: € 12,00 per persoon
 maxPortionsText: Maximaal 5 porties, op is op
 orderingEnabled: true
 trustNote: Je bestelling komt direct bij mij binnen via WhatsApp.
