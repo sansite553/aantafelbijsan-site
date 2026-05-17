@@ -9,11 +9,11 @@ const fallbackContent = {
   pickupMoment: "woensdag tussen 17:30 - 18:00",
   pickupAddress: "Bloesemgeel 13, Rosmalen",
   paymentMethod: "Betaling vooraf via Tikkie",
-  weekLabel: "Weekmenu 20",
-  servingDate: "woensdag 13 mei",
-  tagline: "Lente aan tafel bij San",
-  dishTitle: "Citroen-kippendij met orzo,",
-  dishDescription: "groene asperges & Parmezaan 🍋",
+  weekLabel: "Weekmenu 21",
+  servingDate: "woensdag 20 mei",
+  tagline: "Fris comfort food",
+  dishTitle: "Zomerse salade met gebakken perzik,",
+  dishDescription: "feta, serranoham en gebakken krieltjes",
   invitation: "Eet je mee?",
   orderLabel: "Bestellen",
   priceText: "€ 12,00 per persoon",
@@ -197,7 +197,9 @@ function setUpContent(content, options = {}) {
 }
 
 async function loadTextFile(path) {
-  const response = await fetch(path, { cache: "no-store" });
+  const separator = path.includes("?") ? "&" : "?";
+  const freshPath = `${path}${separator}t=${Date.now()}`;
+  const response = await fetch(freshPath, { cache: "no-store" });
 
   if (!response.ok) {
     throw new Error(`${path} kon niet worden geladen`);
