@@ -11,11 +11,11 @@ orderDeadline: uiterlijk maandag voor 20:00
 pickupMoment: woensdag tussen 17:30 - 18:00
 pickupAddress:
 paymentMethod: Betaling vooraf via Tikkie
-weekLabel: Weekmenu 20
-servingDate: woensdag 13 mei
-tagline: Lente aan tafel bij San
-dishTitle: Citroen-kippendij met orzo,
-dishDescription: groene asperges & Parmezaan 🍋
+weekLabel: Weekmenu 21
+servingDate: woensdag 20 mei
+tagline: Fris comfort food
+dishTitle: Zomerse salade met gebakken perzik,
+dishDescription: feta, serranoham en gebakken krieltjes
 invitation:Eet je mee?
 orderLabel: Bestellen
 priceText: € 12,00 per persoon
