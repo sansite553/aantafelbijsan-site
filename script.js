@@ -26,12 +26,14 @@ const scheduledMenuFiles = [
   {
     path: "weekmenu-next.txt",
     preview: "next",
-    previewLabel: "Preview van het volgende menu"
+    previewLabel: "Preview van het volgende menu",
+    applyLive: true
   },
   {
     path: "weekmenu-2026-05-03.txt",
     preview: "weekmenu-19",
-    previewLabel: "Preview van weekmenu 19"
+    previewLabel: "Preview van weekmenu 19",
+    applyLive: false
   }
 ];
 
@@ -233,7 +235,12 @@ async function loadScheduledMenus(currentContent) {
 }
 
 function findNextScheduledMenu(scheduledMenus) {
-  return scheduledMenus.find((menu) => !isScheduledMenuLive(menu.content));
+  return scheduledMenus.find((menu) => menu.applyLive && !isScheduledMenuLive(menu.content));
+}
+
+function findLiveScheduledMenu(scheduledMenus) {
+  const liveMenus = scheduledMenus.filter((menu) => menu.applyLive && isScheduledMenuLive(menu.content));
+  return liveMenus[liveMenus.length - 1];
 }
 
 async function loadContent() {
@@ -265,6 +272,15 @@ async function loadContent() {
         }
       };
     }
+  }
+
+  const liveScheduledMenu = findLiveScheduledMenu(scheduledMenus);
+
+  if (liveScheduledMenu) {
+    return {
+      content: liveScheduledMenu.content,
+      options: { isPreview: false, showAbout: true }
+    };
   }
 
   return {
