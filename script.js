@@ -8,7 +8,7 @@ const fallbackContent = {
   orderDeadline: "uiterlijk maandag voor 20:00",
   pickupMoment: "woensdag tussen 17:30 - 18:00",
   pickupAddress: "Bloesemgeel 13, Rosmalen",
-  paymentMethod: "Betaling vooraf via Tikkie",
+  paymentMethod: "Na je bestelling ontvang je een betaalverzoek.",
   weekLabel: "Weekmenu 21",
   servingDate: "woensdag 20 mei",
   tagline: "Fris comfort food",
@@ -16,7 +16,7 @@ const fallbackContent = {
   dishDescription: "feta, serranoham en gebakken krieltjes",
   invitation: "Eet je mee?",
   orderLabel: "Bestellen",
-  priceText: "€ 12,00 per persoon",
+  priceText: "â¬ 12,00 per persoon",
   maxPortionsText: "Maximaal 5 porties, op is op",
   orderingEnabled: "true",
   trustNote: "Je bestelling komt direct bij mij binnen via WhatsApp."
