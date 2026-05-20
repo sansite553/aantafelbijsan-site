@@ -10,7 +10,7 @@ publishAt:
 orderDeadline: uiterlijk maandag voor 20:00
 pickupMoment: woensdag tussen 17:30 - 18:00
 pickupAddress:
-paymentMethod: Betaling vooraf via Tikkie
+paymentMethod: Na je bestelling ontvang je een betaalverzoek.
 weekLabel: Weekmenu 21
 servingDate: woensdag 20 mei
 tagline: Fris comfort food
