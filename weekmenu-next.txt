@@ -8,13 +8,13 @@ businessSubtitle: Wekelijks vers huisgemaakt afhaalmenu
 whatsappNumber: 31619912663
 instagramUrl: https://www.instagram.com/aantafelbijsan?igsh=b2RhMmhzMG9hcHN0&utm_source=qr
 instagramLabel: Volg Aan Tafel Bij San op Instagram
-publishAt: 2026-06-07T11:00:00+02:00
+publishAt: 2026-06-14T11:00:00+02:00
 orderDeadline: uiterlijk maandag voor 20:00
 pickupMoment: woensdag tussen 17:30 - 18:00
 pickupAddress:
 paymentMethod: Na je bestelling ontvang je een betaalverzoek.
-weekLabel: Weekmenu 24
-servingDate: woensdag 10 juni
+weekLabel: Weekmenu 25
+servingDate: woensdag 17 juni
 tagline: Vers en met liefde bereid
 dishTitle: Romige linguine met spinazie, krokante spekjes,
 dishDescription: Parmezaanse kaas en citroenzest 🍝
