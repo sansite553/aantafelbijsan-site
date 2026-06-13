@@ -17,7 +17,7 @@ weekLabel: Weekmenu 25
 servingDate: woensdag 17 juni
 tagline: Vers en met liefde bereid
 dishTitle: Romige linguine met spinazie, krokante pancetta,
-dishDescription: Parmezaanse kaas, citroenzest en 🍝
+dishDescription: Parmezaanse kaas en citroenzest 🍝
 invitation: Eet je mee?
 orderLabel: Bestellen
 priceText: € 12,00 per persoon
