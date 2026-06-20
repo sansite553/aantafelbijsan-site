@@ -369,8 +369,7 @@ reservationForm.addEventListener("submit", async (event) => {
       console.warn(confirmationError);
     }
 
-    reservationConfirmation.hidden = false;
-    reservationInfo.innerHTML = `
+    const successMessage = `
       <strong>${formatDateLabel(selectedDate)}</strong><br />
       ${customerConfirmationSent
         ? "Je reservering is opgeslagen. Je ontvangt nu ook een bevestigingsmail in je mailbox."
@@ -380,6 +379,9 @@ reservationForm.addEventListener("submit", async (event) => {
 
     const refreshedPreferredDate = reservationResult.status === "available" ? selectedDate : null;
     await loadBorrelboxDates(refreshedPreferredDate);
+    reservationConfirmation.hidden = false;
+    reservationInfo.hidden = false;
+    reservationInfo.innerHTML = successMessage;
   } catch (error) {
     reservationInfo.textContent = getFriendlyReservationError(error.message);
     await loadBorrelboxDates(selectedDate);
