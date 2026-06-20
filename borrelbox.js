@@ -1,6 +1,6 @@
 const supabaseUrl = "https://umfrqvnyflzmrfomqgqo.supabase.co";
 const supabasePublishableKey = "sb_publishable_pUIjT7d0zEsvXZTca9uyiw__0BUJotI";
-const confirmationFunctionUrl = `${supabaseUrl}/functions/v1/send-borrelbox-confirmation`;
+const confirmationFunctionUrl = `${supabaseUrl}/functions/v1/smooth-service`;
 
 const reservationEmail = "aantafelbijsan@gmail.com";
 const reservationEndpoint = `https://formsubmit.co/ajax/${reservationEmail}`;
