@@ -1,5 +1,6 @@
 const supabaseUrl = "https://umfrqvnyflzmrfomqgqo.supabase.co";
 const supabasePublishableKey = "sb_publishable_pUIjT7d0zEsvXZTca9uyiw__0BUJotI";
+const confirmationFunctionUrl = `${supabaseUrl}/functions/v1/send-borrelbox-confirmation`;
 
 const reservationEmail = "aantafelbijsan@gmail.com";
 const reservationEndpoint = `https://formsubmit.co/ajax/${reservationEmail}`;
@@ -276,6 +277,37 @@ async function sendReservationNotification(formData, entry) {
   }
 }
 
+async function sendCustomerConfirmationEmail(formData, entry) {
+  const response = await fetch(confirmationFunctionUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      apikey: supabasePublishableKey,
+      Authorization: `Bearer ${supabasePublishableKey}`
+    },
+    body: JSON.stringify({
+      customerName: formData.get("name"),
+      customerEmail: formData.get("email"),
+      serviceDate: entry.date,
+      quantity: Number(formData.get("quantity"))
+    })
+  });
+
+  if (!response.ok) {
+    let message = "De bevestigingsmail naar de klant kon niet worden verstuurd.";
+
+    try {
+      const errorData = await response.json();
+      message = errorData.error || errorData.message || message;
+    } catch (_error) {
+      // Keep the fallback message when the response is not valid JSON.
+    }
+
+    throw new Error(message);
+  }
+}
+
 function getFriendlyReservationError(message) {
   if (!message) {
     return "Er ging iets mis met het versturen. Probeer het gerust nog een keer.";
@@ -311,6 +343,7 @@ reservationForm.addEventListener("submit", async (event) => {
   const selectedDate = selectedEntry.date;
   reservationConfirmation.hidden = true;
   reservationInfo.hidden = false;
+  let customerConfirmationSent = false;
 
   try {
     setSubmitState(true);
@@ -329,10 +362,19 @@ reservationForm.addEventListener("submit", async (event) => {
       console.warn(notificationError);
     }
 
+    try {
+      await sendCustomerConfirmationEmail(formData, selectedEntry);
+      customerConfirmationSent = true;
+    } catch (confirmationError) {
+      console.warn(confirmationError);
+    }
+
     reservationConfirmation.hidden = false;
     reservationInfo.innerHTML = `
       <strong>${formatDateLabel(selectedDate)}</strong><br />
-      Je reservering is opgeslagen. Ik neem contact met je op voor de bevestiging en het betaalverzoek.
+      ${customerConfirmationSent
+        ? "Je reservering is opgeslagen. Je ontvangt nu ook een bevestigingsmail in je mailbox."
+        : "Je reservering is opgeslagen. Ik neem contact met je op voor de bevestiging en het betaalverzoek."}
     `;
     reservationForm.reset();
 
