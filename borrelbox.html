@@ -366,36 +366,6 @@
         text-transform: uppercase;
       }
 
-      .selection-panel {
-        margin-top: 20px;
-        padding: 16px 16px 0;
-        border-top: 1px solid rgba(63, 42, 34, 0.09);
-      }
-
-      .selection-card {
-        display: grid;
-        gap: 8px;
-        padding: 16px;
-        border: 1px solid rgba(63, 42, 34, 0.07);
-        border-radius: 20px;
-        background: rgba(255, 251, 247, 0.64);
-      }
-
-      .selection-card p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 0.94rem;
-        line-height: 1.6;
-      }
-
-      .selection-date {
-        color: var(--ink);
-        font-family: "Cormorant Garamond", serif;
-        font-size: 1.42rem;
-        line-height: 1;
-        font-weight: 600;
-      }
-
       .reservation-card {
         position: sticky;
         top: 28px;
@@ -631,12 +601,6 @@
             </div>
 
             <div class="month-groups" id="monthGroups"></div>
-
-            <div class="selection-panel">
-              <div class="selection-card" id="selectionCard">
-                <p>Kies hierboven een datum om de status te bekijken en te reserveren.</p>
-              </div>
-            </div>
           </section>
 
           <aside class="reservation-card" aria-labelledby="reservationTitle">
@@ -696,6 +660,6 @@
       <p class="page-footer">Vers huisgemaakt in Rosmalen, met aandacht bereid door San.</p>
     </main>
 
-    <script src="borrelbox.js?v=20260618-dates-reset"></script>
+    <script src="borrelbox.js?v=20260620-selection-cleanup"></script>
   </body>
 </html>

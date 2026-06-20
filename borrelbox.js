@@ -13,7 +13,6 @@ const fallbackBorrelboxDates = [
 ];
 
 const monthGroups = document.getElementById("monthGroups");
-const selectionCard = document.getElementById("selectionCard");
 const reservationPlaceholder = document.getElementById("reservationPlaceholder");
 const reservationInfo = document.getElementById("reservationInfo");
 const reservationForm = document.getElementById("reservationForm");
@@ -77,17 +76,6 @@ function buildMonthMap(entries) {
   }, new Map());
 }
 
-function renderSelection(entry) {
-  const statusLabel = getStatusLabel(entry.status);
-  const statusClass = getStatusClass(entry.status);
-
-  selectionCard.innerHTML = `
-    <p class="selection-date">${formatDateLabel(entry.date)}</p>
-    <p><span class="status-chip ${statusClass}">${statusLabel}</span></p>
-    <p>${statusLabel}</p>
-  `;
-}
-
 function updateQuantityOptions(entry) {
   quantitySelect.innerHTML = "";
   const maxSelectable = Math.min(entry.remainingBoxes || entry.maxBoxes || 0, entry.maxBoxes || 4);
@@ -139,7 +127,6 @@ function handleDateSelection(entry, button) {
   selectedEntry = entry;
   clearSelectedState();
   button.classList.add("is-selected");
-  renderSelection(entry);
   updateReservationPanel(entry);
 }
 
@@ -200,9 +187,9 @@ function renderDateButtons(entries, preferredDate = null) {
 
   selectedEntry = null;
   reservationPlaceholder.hidden = false;
+  reservationPlaceholder.textContent = "Er zijn op dit moment geen beschikbare data om te reserveren.";
   reservationForm.hidden = true;
   reservationInfo.hidden = true;
-  selectionCard.innerHTML = "<p>Er zijn op dit moment geen beschikbare data om te reserveren.</p>";
 }
 
 function setSubmitState(isSubmitting) {
