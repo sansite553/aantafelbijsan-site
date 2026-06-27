@@ -40,6 +40,18 @@ function formatDateLabel(dateValue) {
   }).format(new Date(`${dateValue}T12:00:00`));
 }
 
+function getTodayKey() {
+  const now = new Date();
+  const utcMidnight = new Date(
+    Date.UTC(now.getFullYear(), now.getMonth(), now.getDate())
+  );
+  return utcMidnight.toISOString().slice(0, 10);
+}
+
+function isPastBorrelboxDate(dateValue) {
+  return dateValue < getTodayKey();
+}
+
 function getStatusLabel(status) {
   if (status === "available") {
     return "Beschikbaar";
@@ -233,14 +245,20 @@ async function loadBorrelboxDates(preferredDate = null) {
     const data = await postSupabaseRpc("get_borrelbox_dates");
     borrelboxDates = data.map((entry) => ({
       date: entry.service_date,
-      status: entry.status,
-      remainingBoxes: entry.remaining_boxes,
+      status: isPastBorrelboxDate(entry.service_date) ? "closed" : entry.status,
+      remainingBoxes: isPastBorrelboxDate(entry.service_date)
+        ? 0
+        : entry.remaining_boxes,
       maxBoxes: entry.max_boxes,
       monthLabel: formatMonth(entry.service_date)
     }));
   } catch (error) {
     borrelboxDates = fallbackBorrelboxDates.map((entry) => ({
       ...entry,
+      status: isPastBorrelboxDate(entry.date) ? "closed" : entry.status,
+      remainingBoxes: isPastBorrelboxDate(entry.date)
+        ? 0
+        : entry.remainingBoxes,
       monthLabel: formatMonth(entry.date)
     }));
     reservationInfo.hidden = false;
