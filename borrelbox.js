@@ -6,7 +6,7 @@ const reservationEmail = "aantafelbijsan@gmail.com";
 const reservationEndpoint = `https://formsubmit.co/ajax/${reservationEmail}`;
 
 const fallbackBorrelboxDates = [
-  { date: "2026-06-28", status: "available", remainingBoxes: 4, maxBoxes: 4 },
+  { date: "2026-06-28", status: "closed", remainingBoxes: 0, maxBoxes: 4 },
   { date: "2026-07-04", status: "available", remainingBoxes: 4, maxBoxes: 4 },
   { date: "2026-08-08", status: "available", remainingBoxes: 4, maxBoxes: 4 },
   { date: "2026-08-15", status: "available", remainingBoxes: 4, maxBoxes: 4 },
