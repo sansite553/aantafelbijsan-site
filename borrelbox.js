@@ -7,7 +7,7 @@ const reservationEndpoint = `https://formsubmit.co/ajax/${reservationEmail}`;
 
 const fallbackBorrelboxDates = [
   { date: "2026-06-28", status: "closed", remainingBoxes: 0, maxBoxes: 4 },
-  { date: "2026-07-04", status: "available", remainingBoxes: 4, maxBoxes: 4 },
+  { date: "2026-07-04", status: "closed", remainingBoxes: 0, maxBoxes: 4 },
   { date: "2026-08-08", status: "available", remainingBoxes: 4, maxBoxes: 4 },
   { date: "2026-08-15", status: "available", remainingBoxes: 4, maxBoxes: 4 },
   { date: "2026-08-22", status: "available", remainingBoxes: 4, maxBoxes: 4 }
@@ -40,16 +40,32 @@ function formatDateLabel(dateValue) {
   }).format(new Date(`${dateValue}T12:00:00`));
 }
 
+function formatLocalDateKey(dateValue) {
+  if (!dateValue) {
+    return "";
+  }
+
+  if (typeof dateValue === "string") {
+    return dateValue.slice(0, 10);
+  }
+
+  if (dateValue instanceof Date && !Number.isNaN(dateValue.getTime())) {
+    const year = dateValue.getFullYear();
+    const month = String(dateValue.getMonth() + 1).padStart(2, "0");
+    const day = String(dateValue.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  }
+
+  return String(dateValue).slice(0, 10);
+}
+
 function getTodayKey() {
-  const now = new Date();
-  const utcMidnight = new Date(
-    Date.UTC(now.getFullYear(), now.getMonth(), now.getDate())
-  );
-  return utcMidnight.toISOString().slice(0, 10);
+  return formatLocalDateKey(new Date());
 }
 
 function isPastBorrelboxDate(dateValue) {
-  return dateValue < getTodayKey();
+  const dateKey = formatLocalDateKey(dateValue);
+  return Boolean(dateKey) && dateKey < getTodayKey();
 }
 
 function getStatusLabel(status) {

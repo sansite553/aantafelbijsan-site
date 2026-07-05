@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage Preview | Aan Tafel Bij San</title>
+    <meta
+      name="description"
+      content="Preview van de homepage met een apart tabblad voor sfeer en verhaal."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Mulish:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=20260517-livefix" />
+    <style>
+      body {
+        min-height: 100vh;
+      }
+
+      .preview-shell {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 40px 0 84px;
+      }
+
+      .preview-pill {
+        display: inline-flex;
+        align-items: center;
+        margin: 0 0 26px;
+        padding: 0.48rem 0.9rem;
+        border-radius: 999px;
+        background: rgba(141, 74, 54, 0.1);
+        color: var(--instagram-dark);
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+      }
+
+      .brand-header {
+        margin: 8px 0 30px;
+      }
+
+      .preview-nav {
+        display: flex;
+        justify-content: flex-start;
+        margin: 0 0 34px;
+      }
+
+      .preview-tabs {
+        display: inline-flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 8px;
+        border: 1px solid rgba(63, 42, 34, 0.1);
+        border-radius: 999px;
+        background: rgba(255, 251, 247, 0.72);
+        box-shadow: 0 14px 30px rgba(79, 54, 42, 0.08);
+      }
+
+      .preview-tab {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0.78rem 1.15rem;
+        border-radius: 999px;
+        color: var(--muted);
+        text-decoration: none;
+        font-weight: 800;
+        letter-spacing: 0.01em;
+        transition:
+          transform 160ms ease,
+          background 160ms ease,
+          color 160ms ease;
+      }
+
+      .preview-tab:hover,
+      .preview-tab:focus-visible {
+        transform: translateY(-2px);
+        color: var(--ink);
+      }
+
+      .preview-tab.is-active {
+        background: var(--instagram);
+        color: #fff;
+        box-shadow: 0 10px 22px rgba(141, 74, 54, 0.18);
+      }
+
+      .hero-layout {
+        gap: 28px;
+        align-items: start;
+      }
+
+      .menu-card,
+      .order-card {
+        box-shadow: 0 22px 42px rgba(79, 54, 42, 0.08);
+      }
+
+      .order-card .whatsapp-button {
+        min-height: 54px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        box-shadow: 0 14px 28px rgba(79, 54, 42, 0.14);
+      }
+
+      .order-card .payment-note {
+        font-size: clamp(1.08rem, 1.35vw, 1.3rem);
+        line-height: 1.12;
+      }
+
+      .social-block {
+        padding-top: 2px;
+      }
+
+      .preview-footer {
+        margin-top: 30px;
+        padding: 20px 8px 0;
+        border-top: 1px solid rgba(63, 42, 34, 0.1);
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.6;
+        text-align: center;
+      }
+
+      @media (max-width: 640px) {
+        .preview-shell {
+          width: min(100% - 22px, 1120px);
+          padding-top: 28px;
+          padding-bottom: 52px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="preview-shell">
+      <p class="preview-pill">Preview homepage met apart tabblad, nog niet live</p>
+
+      <header class="brand-header">
+        <div class="brand-seal" aria-hidden="true">
+          <img src="brand-seal.png" alt="" />
+        </div>
+        <div class="brand-copy">
+          <h1>Aan Tafel Bij San</h1>
+          <p class="subtitle">Wekelijks vers huisgemaakt afhaalmenu</p>
+        </div>
+      </header>
+
+      <div class="preview-nav" aria-label="Preview navigatie">
+        <nav class="preview-tabs">
+          <a class="preview-tab is-active" href="homepage-tab-preview.html">Weekmenu</a>
+          <a class="preview-tab" href="sfeer-verhaal-preview-zonder-tekst.html">Over San &amp; sfeer</a>
+        </nav>
+      </div>
+
+      <section class="hero-layout">
+        <section class="menu-card">
+          <div id="menuContent">
+            <p class="week-line">
+              <span>Weekmenu 22</span>
+              <span aria-hidden="true">|</span>
+              <span>woensdag 27 mei</span>
+            </p>
+
+            <p class="local-note">Huisgemaakt afhaalmenu in Rosmalen</p>
+            <p class="tagline">Fris, kleurrijk en bomvol smaak</p>
+
+            <p class="menu-sentence">
+              <span>Pokébowl met gemarineerde zalm, rijst, edamame,</span>
+              <span>komkommer, lente-ui, crispy uitjes en sriracha mayo</span>
+            </p>
+            <p class="invitation">Eet je mee?</p>
+          </div>
+        </section>
+
+        <aside class="order-card">
+          <div id="orderContent">
+            <p class="order-label">Bestellen</p>
+            <p class="price">€ 12,00 per persoon</p>
+            <p class="payment-note">Na je bestelling ontvang je een betaalverzoek.</p>
+
+            <ul class="details-list">
+              <li>Bestellen: uiterlijk maandag voor 20:00</li>
+              <li>Afhalen: woensdag tussen 17:30 - 18:00</li>
+              <li>Maximaal 5 porties, op is op</li>
+            </ul>
+
+            <div class="action-group">
+              <a class="whatsapp-button" href="#">
+                Bestel via WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <div class="social-block" style="margin-top: 26px">
+            <p class="social-label">Meer Van Aan Tafel Bij San</p>
+            <p class="social-note">Volg me op Instagram voor nieuwe menu's en updates.</p>
+            <a
+              class="instagram-link"
+              href="https://www.instagram.com/aantafelbijsan?igsh=b2RhMmhzMG9hcHN0&utm_source=qr"
+              aria-label="Volg Aan Tafel Bij San op Instagram"
+              title="Volg Aan Tafel Bij San op Instagram"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path
+                  d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5a4.25 4.25 0 0 0 4.25 4.25h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5a4.25 4.25 0 0 0-4.25-4.25h-8.5Zm8.95 1.75a1.05 1.05 0 1 1 0 2.1 1.05 1.05 0 0 1 0-2.1ZM12 6.75A5.25 5.25 0 1 1 6.75 12 5.26 5.26 0 0 1 12 6.75Zm0 1.5A3.75 3.75 0 1 0 15.75 12 3.75 3.75 0 0 0 12 8.25Z"
+                />
+              </svg>
+            </a>
+          </div>
+        </aside>
+      </section>
+
+      <p class="preview-footer">Vers huisgemaakt in Rosmalen, met aandacht bereid door San.</p>
+
+    </main>
+  </body>
+</html>

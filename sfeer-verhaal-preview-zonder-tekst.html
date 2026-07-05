@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sfeer & Verhaal Preview Zonder Tekst | Aan Tafel Bij San</title>
+    <meta
+      name="description"
+      content="Preview van een apart tabblad met sfeer en verhaal voor Aan Tafel Bij San, zonder tekst bij de foto's."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Mulish:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=20260517-livefix" />
+    <style>
+      body {
+        min-height: 100vh;
+      }
+
+      .story-shell {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 40px 0 84px;
+      }
+
+      .preview-pill {
+        display: inline-flex;
+        align-items: center;
+        margin: 0 0 26px;
+        padding: 0.48rem 0.9rem;
+        border-radius: 999px;
+        background: rgba(141, 74, 54, 0.1);
+        color: var(--instagram-dark);
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+      }
+
+      .brand-header {
+        margin: 8px 0 30px;
+      }
+
+      .preview-nav {
+        display: flex;
+        justify-content: flex-start;
+        margin: 0 0 24px;
+      }
+
+      .preview-tabs {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 8px;
+        border: 1px solid rgba(63, 42, 34, 0.1);
+        border-radius: 999px;
+        background: rgba(255, 251, 247, 0.72);
+        box-shadow: 0 14px 30px rgba(79, 54, 42, 0.08);
+      }
+
+      .preview-tab {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0.78rem 1.15rem;
+        border-radius: 999px;
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 800;
+        letter-spacing: 0.01em;
+        transition:
+          transform 160ms ease,
+          background 160ms ease,
+          color 160ms ease;
+      }
+
+      .preview-tab:hover,
+      .preview-tab:focus-visible {
+        transform: translateY(-2px);
+        color: var(--ink);
+      }
+
+      .preview-tab.is-active {
+        background: var(--instagram);
+        color: #fff;
+        box-shadow: 0 10px 22px rgba(141, 74, 54, 0.18);
+      }
+
+      .intro-card,
+      .gallery-card {
+        border: 1px solid var(--line);
+        border-radius: 34px;
+        box-shadow: var(--shadow);
+        background:
+          linear-gradient(180deg, rgba(255, 250, 245, 0.96), rgba(242, 232, 224, 0.9)),
+          linear-gradient(130deg, rgba(255, 255, 255, 0.45), transparent 46%);
+      }
+
+      .intro-card {
+        padding: clamp(24px, 3.6vw, 36px);
+      }
+
+      .intro-grid {
+        display: grid;
+        grid-template-columns: 300px minmax(0, 1fr);
+        gap: 24px;
+        align-items: center;
+      }
+
+      .intro-photo {
+        overflow: hidden;
+        border-radius: 30px;
+        aspect-ratio: 0.9 / 1.08;
+        box-shadow: 0 18px 34px rgba(79, 54, 42, 0.09);
+      }
+
+      .intro-photo img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .story-kicker {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .story-title {
+        margin: 8px 0 0;
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2.2rem, 4vw, 3.35rem);
+        line-height: 0.95;
+        font-weight: 600;
+      }
+
+      .story-lead {
+        max-width: 42ch;
+        margin: 14px 0 0;
+        color: var(--muted);
+        font-size: 1rem;
+        line-height: 1.72;
+      }
+
+      .story-text {
+        display: grid;
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .story-text p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.97rem;
+        line-height: 1.75;
+      }
+
+      .gallery-card {
+        margin-top: 28px;
+        padding: clamp(22px, 3.2vw, 30px);
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .gallery-item {
+        overflow: hidden;
+        border: 1px solid rgba(63, 42, 34, 0.1);
+        border-radius: 26px;
+        background: rgba(255, 251, 247, 0.86);
+        box-shadow: 0 18px 36px rgba(79, 54, 42, 0.08);
+      }
+
+      .gallery-item img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1 / 1.08;
+        object-fit: cover;
+      }
+
+      .preview-footer {
+        margin-top: 30px;
+        padding: 20px 8px 0;
+        border-top: 1px solid rgba(63, 42, 34, 0.1);
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.6;
+        text-align: center;
+      }
+
+      @media (max-width: 900px) {
+        .intro-grid,
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .story-shell {
+          width: min(100% - 22px, 1120px);
+          padding-top: 28px;
+          padding-bottom: 52px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="story-shell">
+      <p class="preview-pill">Preview apart tabblad, nog niet live</p>
+
+      <header class="brand-header">
+        <div class="brand-seal" aria-hidden="true">
+          <img src="brand-seal.png" alt="" />
+        </div>
+        <div class="brand-copy">
+          <h1>Aan Tafel Bij San</h1>
+          <p class="subtitle">Sfeer &amp; verhaal</p>
+        </div>
+      </header>
+
+      <div class="preview-nav" aria-label="Preview navigatie">
+        <nav class="preview-tabs">
+          <a class="preview-tab" href="homepage-tab-preview.html">Weekmenu</a>
+          <a class="preview-tab is-active" href="sfeer-verhaal-preview-zonder-tekst.html">Over San &amp; sfeer</a>
+        </nav>
+      </div>
+
+      <section class="intro-card" aria-labelledby="storyTitle">
+        <div class="intro-grid">
+          <div class="intro-photo">
+            <img src="foto-san-nieuw-website.png" alt="Suzanne van Aan Tafel Bij San" />
+          </div>
+
+          <div>
+            <p class="story-kicker">Even voorstellen</p>
+            <h2 class="story-title" id="storyTitle">Wie is San?</h2>
+            <div class="story-text">
+              <p>
+                Ik ben Suzanne, maar mijn familie noemt mij San.
+                Oorspronkelijk kom ik uit Amsterdam, maar inmiddels woon ik al
+                jaren met veel plezier in Rosmalen.
+              </p>
+              <p>
+                Naast mijn werk bij een verzekeringsmaatschappij breng ik
+                graag tijd door met mijn gezin. Ik houd van muziek luisteren,
+                op vakantie gaan en gezellig eten met een goed glas wijn
+                erbij. In 2019 haalde ik mijn WSET-wijnbrevet, vooral vanuit
+                mijn liefde voor lekker eten en drinken.
+              </p>
+              <p>
+                Koken is voor mij ontspanning en gezelligheid. Ik vind het
+                heerlijk om mensen om mij heen te zien genieten van mijn eten.
+                Met Kerst heb ik al meerdere keren voor de hele familie
+                gekookt, en dat zijn precies de momenten waar ik blij van word.
+              </p>
+              <p>
+                In 2024 begon ik voor iemand buiten mijn eigen gezin te koken.
+                Dat vond ik zo leuk om te doen, dat daar later het idee voor
+                Aan tafel bij San uit ontstond.
+              </p>
+              <p>
+                Aan tafel bij San is een kleinschalig project waarbij ik elke
+                week een vers huisgemaakt afhaalmenu maak. De naam verwijst
+                naar hoe mijn familie mij noemt: San.
+              </p>
+              <p>
+                Voor mij voelt dat persoonlijk en vertrouwd. Precies zoals ik
+                hoop dat mijn eten ook voelt: warm, huisgemaakt en met aandacht
+                bereid. Wie weet staat er binnenkort ook iets van Aan tafel bij
+                San bij jou op tafel.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="gallery-card" aria-label="Sfeerfoto's">
+        <div class="gallery-grid">
+          <figure class="gallery-item">
+            <img src="sfeer-verpakking.jpeg" alt="Verse maaltijden van Aan Tafel Bij San klaar op het aanrecht" />
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="sfeer-pasta.jpeg" alt="Pasta op een bord van Aan Tafel Bij San" />
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="sfeer-rendang.jpeg" alt="Rendang met rijst op een bord van Aan Tafel Bij San" />
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="sfeer-kip.jpeg" alt="Kipgerecht op een wit bord van Aan Tafel Bij San" />
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="sfeer-cake.jpeg" alt="Plak cake op een bord van Aan Tafel Bij San" />
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="sfeer-dessert.jpeg" alt="Dessert met passievrucht op een bord van Aan Tafel Bij San" />
+          </figure>
+        </div>
+      </section>
+
+      <p class="preview-footer">Vers huisgemaakt in Rosmalen, met aandacht bereid door San.</p>
+    </main>
+  </body>
+</html>
