@@ -6,11 +6,14 @@ const reservationEmail = "aantafelbijsan@gmail.com";
 const reservationEndpoint = `https://formsubmit.co/ajax/${reservationEmail}`;
 
 const fallbackBorrelboxDates = [
-  { date: "2026-06-28", status: "closed", remainingBoxes: 0, maxBoxes: 4 },
-  { date: "2026-07-04", status: "closed", remainingBoxes: 0, maxBoxes: 4 },
   { date: "2026-08-08", status: "available", remainingBoxes: 4, maxBoxes: 4 },
   { date: "2026-08-15", status: "available", remainingBoxes: 4, maxBoxes: 4 },
-  { date: "2026-08-22", status: "available", remainingBoxes: 4, maxBoxes: 4 }
+  { date: "2026-08-22", status: "available", remainingBoxes: 4, maxBoxes: 4 },
+  { date: "2026-08-29", status: "available", remainingBoxes: 4, maxBoxes: 4 },
+  { date: "2026-09-05", status: "available", remainingBoxes: 4, maxBoxes: 4 },
+  { date: "2026-09-12", status: "available", remainingBoxes: 4, maxBoxes: 4 },
+  { date: "2026-09-19", status: "available", remainingBoxes: 4, maxBoxes: 4 },
+  { date: "2026-09-26", status: "available", remainingBoxes: 4, maxBoxes: 4 }
 ];
 
 const monthGroups = document.getElementById("monthGroups");
@@ -66,6 +69,32 @@ function getTodayKey() {
 function isPastBorrelboxDate(dateValue) {
   const dateKey = formatLocalDateKey(dateValue);
   return Boolean(dateKey) && dateKey < getTodayKey();
+}
+
+function shouldShowPromoFromDate(showFromDate) {
+  if (!showFromDate) {
+    return true;
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const isPreview =
+    params.get("preview") === "kennismakingskorting" ||
+    params.get("promo") === "kennismakingskorting" ||
+    window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1" ||
+    window.location.protocol === "file:";
+
+  return isPreview || getTodayKey() >= showFromDate;
+}
+
+function setupBorrelPromo() {
+  const promo = document.getElementById("borrelPromo");
+
+  if (!promo) {
+    return;
+  }
+
+  promo.hidden = !shouldShowPromoFromDate(promo.dataset.showFrom);
 }
 
 function getStatusLabel(status) {
@@ -424,4 +453,5 @@ reservationForm.addEventListener("submit", async (event) => {
   }
 });
 
+setupBorrelPromo();
 loadBorrelboxDates();

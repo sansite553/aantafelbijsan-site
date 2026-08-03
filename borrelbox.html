@@ -135,6 +135,66 @@
         line-height: 1.75;
       }
 
+      .borrel-promo {
+        margin: 20px 0 0;
+        padding: 16px 18px;
+        border: 1px solid rgba(93, 73, 62, 0.14);
+        border-radius: 18px;
+        background: rgba(255, 249, 241, 0.78);
+        box-shadow: none;
+        font-family: "Mulish", sans-serif;
+      }
+
+      .borrel-promo[hidden] {
+        display: none;
+      }
+
+      .promo-kicker {
+        margin: 0 0 8px;
+        color: var(--accent);
+        font-family: "Mulish", sans-serif;
+        font-size: 0.76rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .borrel-promo p {
+        margin: 8px 0 0;
+        color: var(--ink);
+        font-family: "Mulish", sans-serif;
+        font-size: 0.98rem;
+        line-height: 1.55;
+      }
+
+      .borrel-promo strong {
+        font-weight: 800;
+      }
+
+      .promo-price {
+        display: block;
+        margin-top: 10px;
+        color: var(--ink);
+        font-family: "Mulish", sans-serif;
+        font-size: 0.98rem;
+        font-weight: 700;
+        line-height: 1.55;
+      }
+
+      .promo-price strong {
+        color: var(--accent);
+        font-family: "Mulish", sans-serif;
+        font-size: 1.04rem;
+        font-weight: 800;
+        letter-spacing: 0;
+      }
+
+      .promo-price span {
+        color: var(--muted);
+        font-family: "Mulish", sans-serif;
+        font-size: 0.95rem;
+      }
+
       .borrel-price {
         margin: 26px 0 0;
         font-family: "Cormorant Garamond", serif;
@@ -555,6 +615,24 @@
               Een rijk gevulde box om samen van te genieten. Perfect voor een gezellige
               avond aan tafel of een ontspannen borrelmoment samen.
             </p>
+            <div
+              class="borrel-promo"
+              id="borrelPromo"
+              data-show-from="2026-08-09"
+              hidden
+            >
+              <p class="promo-kicker">Kennismakingsactie</p>
+              <p><strong>Nog niet eerder een borrelbox besteld?</strong></p>
+              <p>Dan is dit hét moment om kennis te maken.</p>
+              <p>
+                Van 15 augustus t/m 30 september ontvang je €5 kennismakingskorting
+                op je eerste borrelbox.
+              </p>
+              <p class="promo-price">
+                Tijdelijk <strong>€34,95</strong> <span>(normaal €39,95).</span>
+              </p>
+              <p>Ik kijk ernaar uit om ook voor jou iets lekkers op tafel te zetten!</p>
+            </div>
             <p class="borrel-price">€39,95 per box</p>
 
             <div class="borrel-facts">
@@ -660,6 +738,6 @@
       <p class="page-footer">Vers huisgemaakt in Rosmalen, met aandacht bereid door San.</p>
     </main>
 
-    <script src="borrelbox.js?v=20260705-past-dates"></script>
+    <script src="borrelbox.js?v=20260809-promo"></script>
   </body>
 </html>
