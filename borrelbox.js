@@ -66,9 +66,20 @@ function getTodayKey() {
   return formatLocalDateKey(new Date());
 }
 
-function isPastBorrelboxDate(dateValue) {
+function getBorrelboxCloseMoment(dateValue) {
   const dateKey = formatLocalDateKey(dateValue);
-  return Boolean(dateKey) && dateKey < getTodayKey();
+  if (!dateKey) return null;
+
+  const [year, month, day] = dateKey.split("-").map(Number);
+  const closeMoment = new Date(year, month - 1, day, 17, 0, 0, 0);
+  closeMoment.setDate(closeMoment.getDate() - 2);
+
+  return closeMoment;
+}
+
+function isBorrelboxDateClosed(dateValue, now = new Date()) {
+  const closeMoment = getBorrelboxCloseMoment(dateValue);
+  return Boolean(closeMoment) && now >= closeMoment;
 }
 
 function shouldShowPromoFromDate(showFromDate) {
@@ -290,8 +301,8 @@ async function loadBorrelboxDates(preferredDate = null) {
     const data = await postSupabaseRpc("get_borrelbox_dates");
     borrelboxDates = data.map((entry) => ({
       date: entry.service_date,
-      status: isPastBorrelboxDate(entry.service_date) ? "closed" : entry.status,
-      remainingBoxes: isPastBorrelboxDate(entry.service_date)
+      status: isBorrelboxDateClosed(entry.service_date) ? "closed" : entry.status,
+      remainingBoxes: isBorrelboxDateClosed(entry.service_date)
         ? 0
         : entry.remaining_boxes,
       maxBoxes: entry.max_boxes,
@@ -300,8 +311,8 @@ async function loadBorrelboxDates(preferredDate = null) {
   } catch (error) {
     borrelboxDates = fallbackBorrelboxDates.map((entry) => ({
       ...entry,
-      status: isPastBorrelboxDate(entry.date) ? "closed" : entry.status,
-      remainingBoxes: isPastBorrelboxDate(entry.date)
+      status: isBorrelboxDateClosed(entry.date) ? "closed" : entry.status,
+      remainingBoxes: isBorrelboxDateClosed(entry.date)
         ? 0
         : entry.remainingBoxes,
       monthLabel: formatMonth(entry.date)
