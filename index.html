@@ -385,6 +385,58 @@
         line-height: 1.7;
       }
 
+      .business-section {
+        padding: clamp(18px, 2.5vw, 28px);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .business-section .section-title {
+        font-size: clamp(1.55rem, 2.3vw, 1.95rem);
+        line-height: 1.1;
+      }
+
+      .business-section p {
+        max-width: 72ch;
+        margin: 9px 0 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.55;
+      }
+
+      .business-section .business-price {
+        color: var(--ink);
+        font-size: 1rem;
+        font-weight: 800;
+      }
+
+      .business-section .business-detail {
+        font-size: 0.82rem;
+        font-style: italic;
+      }
+
+      .business-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        margin-top: 16px;
+        padding: 0.75rem 1.15rem;
+        border-radius: 999px;
+        background: var(--instagram);
+        color: #fff;
+        font-weight: 800;
+        text-align: center;
+        text-decoration: none;
+        transition: background 160ms ease, transform 160ms ease;
+      }
+
+      .business-button:hover,
+      .business-button:focus-visible {
+        background: var(--instagram-dark);
+        transform: translateY(-2px);
+      }
+
       .status-legend {
         display: flex;
         flex-wrap: wrap;
@@ -840,6 +892,29 @@
               Bedankt voor je reservering. Ik neem contact met je op voor de bevestiging en het betaalverzoek.
             </div>
           </aside>
+        </section>
+
+        <section class="business-section" aria-labelledby="businessTitle">
+          <p class="kicker">Zakelijk</p>
+          <h3 class="section-title" id="businessTitle">Luxe XL borrelbox - voor 8 personen</h3>
+          <p>
+            Op zoek naar iets lekkers voor een vrijdagmiddagborrel, teammoment, opening of andere
+            zakelijke gelegenheid? Met de Luxe XL borrelbox zet je in één keer een royale en
+            feestelijke borrel neer voor een groter gezelschap.
+          </p>
+          <p>
+            Gevuld met o.a. 5 soorten kaas, 3 soorten luxe vleeswaren, diverse dips en begeleiders,
+            gemarineerde olijven, gevulde dadels, vers en/of gedroogd fruit, noten en 3 soorten
+            crackers/broodbegeleiders.
+          </p>
+          <p class="business-price">€119,95 excl. btw</p>
+          <p class="business-detail">De exacte samenstelling kan wisselen op basis van seizoen en beschikbaarheid.</p>
+          <p>
+            Voor grotere gezelschappen maak ik graag een passend voorstel. Denk bijvoorbeeld aan
+            meerdere XL-boxen of een invulling op maat voor jullie borrelmoment.
+          </p>
+          <p>Interesse? Neem gerust contact met me op om de mogelijkheden te bespreken.</p>
+          <a class="business-button" href="contact.html?aanvraag=xl#contactForm">Zakelijke borrel aanvragen</a>
         </section>
 
         <section class="borrel-note" aria-labelledby="borrelNoteTitle">
