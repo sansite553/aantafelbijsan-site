@@ -107,11 +107,7 @@ function isPastBorrelboxDate(dateValue) {
   return Boolean(dateKey && todayKey && dateKey < todayKey);
 }
 
-function shouldShowPromoFromDate(showFromDate) {
-  if (!showFromDate) {
-    return true;
-  }
-
+function shouldShowPromoFromDate(showFromDate, showUntilDate) {
   const params = new URLSearchParams(window.location.search);
   const isPreview =
     params.get("preview") === "kennismakingskorting" ||
@@ -120,7 +116,11 @@ function shouldShowPromoFromDate(showFromDate) {
     window.location.hostname === "127.0.0.1" ||
     window.location.protocol === "file:";
 
-  return isPreview || getTodayKey() >= showFromDate;
+  const todayKey = getTodayKey();
+  return isPreview || (
+    (!showFromDate || todayKey >= showFromDate) &&
+    (!showUntilDate || todayKey <= showUntilDate)
+  );
 }
 
 function setupBorrelPromo() {
@@ -130,7 +130,7 @@ function setupBorrelPromo() {
     return;
   }
 
-  promo.hidden = !shouldShowPromoFromDate(promo.dataset.showFrom);
+  promo.hidden = !shouldShowPromoFromDate(promo.dataset.showFrom, promo.dataset.showUntil);
 }
 
 function getStatusLabel(status) {
