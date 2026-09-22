@@ -453,18 +453,46 @@
 
       .date-grid {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 14px;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 7px;
+      }
+
+      .calendar-weekday {
+        padding: 2px 0 4px;
+        color: var(--muted);
+        font-size: 0.7rem;
+        font-weight: 800;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .calendar-day,
+      .date-button {
+        display: flex;
+        min-width: 0;
+        min-height: 58px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+      }
+
+      .calendar-day {
+        color: rgba(93, 77, 70, 0.48);
+        font-size: 0.82rem;
+      }
+
+      .calendar-day.is-unavailable {
+        background: rgba(255, 251, 247, 0.38);
       }
 
       .date-button {
         width: 100%;
-        padding: 16px;
+        padding: 7px 3px;
         border: 1px solid rgba(63, 42, 34, 0.08);
-        border-radius: 20px;
         background: rgba(255, 251, 247, 0.72);
         color: var(--ink);
-        text-align: left;
+        text-align: center;
         cursor: pointer;
         transition:
           transform 160ms ease,
@@ -482,8 +510,20 @@
       }
 
       .date-button.is-selected {
-        border-color: rgba(141, 74, 54, 0.22);
-        background: rgba(255, 251, 247, 0.92);
+        border-color: var(--instagram);
+        box-shadow: 0 0 0 2px rgba(141, 74, 54, 0.18);
+      }
+
+      .date-button.status-available {
+        background: rgba(31, 143, 83, 0.1);
+      }
+
+      .date-button.status-full {
+        background: rgba(141, 74, 54, 0.12);
+      }
+
+      .date-button.status-closed {
+        background: rgba(93, 77, 70, 0.1);
         box-shadow: 0 14px 26px rgba(79, 54, 42, 0.07);
       }
 
@@ -492,28 +532,11 @@
         opacity: 0.92;
       }
 
-      .date-topline {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-      }
-
       .date-label {
         font-family: "Cormorant Garamond", serif;
-        font-size: 1.36rem;
-        font-weight: 600;
+        font-size: 1.2rem;
+        font-weight: 700;
         line-height: 1;
-      }
-
-      .date-subline {
-        margin: 12px 0 0;
-        color: var(--muted);
-        font-size: 0.84rem;
-        font-weight: 800;
-        letter-spacing: 0.04em;
-        line-height: 1.35;
-        text-transform: uppercase;
       }
 
       .reservation-card {
@@ -671,10 +694,6 @@
           padding-bottom: 52px;
         }
 
-        .date-grid {
-          grid-template-columns: 1fr;
-        }
-
         .contents-card,
         .contents-list {
           grid-template-columns: 1fr;
@@ -683,6 +702,7 @@
         .contents-photo {
           max-width: none;
         }
+
       }
     </style>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EJPSFYHC73"></script>
@@ -742,32 +762,6 @@
                 <div class="fact-text">Afhalen in Rosmalen tussen 13.00 en 14.00 uur</div>
               </div>
             </div>
-          </div>
-        </section>
-
-        <section
-          class="borrel-promo"
-          id="borrelPromo"
-          data-show-from="2026-08-09"
-          data-show-until="2026-09-30"
-          hidden
-        >
-          <div class="promo-photo">
-            <img src="borrelbox-detail-liefde.jpg" alt="Borrelbox met kazen, fruit en vleeswaren" />
-          </div>
-
-          <div class="promo-copy">
-            <p class="promo-kicker">Kennismakingsactie</p>
-            <p><strong>Nog niet eerder een borrelbox besteld?</strong></p>
-            <p>Dan is dit hét moment om kennis te maken.</p>
-            <p>
-              Van 15 augustus t/m 30 september ontvang je €20 kennismakingskorting
-              op je eerste borrelbox.
-            </p>
-            <p class="promo-price">
-              Tijdelijk <strong>€34,95 incl. btw</strong> <span>(normaal €54,95).</span>
-            </p>
-            <p>Ik kijk ernaar uit om ook voor jou iets lekkers op tafel te zetten!</p>
           </div>
         </section>
 
@@ -868,6 +862,6 @@
       <p class="page-footer">Vers huisgemaakt in Rosmalen, met aandacht bereid door San.</p>
     </main>
 
-    <script src="borrelbox.js?v=20260920-price-promo-end"></script>
+    <script src="borrelbox.js?v=20260922-calendar-preview"></script>
   </body>
 </html>

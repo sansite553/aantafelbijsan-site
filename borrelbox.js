@@ -159,7 +159,7 @@ function getStatusClass(status) {
 
 function buildMonthMap(entries) {
   return entries.reduce((groups, entry) => {
-    const monthKey = entry.monthLabel || formatMonth(entry.date);
+    const monthKey = entry.date.slice(0, 7);
 
     if (!groups.has(monthKey)) {
       groups.set(monthKey, []);
@@ -225,34 +225,64 @@ function handleDateSelection(entry, button) {
 }
 
 function renderDateButtons(entries, preferredDate = null) {
-  const groupedEntries = buildMonthMap(entries);
+  const visibleEntries = entries.filter((entry) => entry.date >= "2026-10-01");
+  const groupedEntries = buildMonthMap(visibleEntries);
   monthGroups.innerHTML = "";
   let preferredSelection = null;
   let firstAvailableSelection = null;
 
-  groupedEntries.forEach((groupEntries, monthLabel) => {
+  groupedEntries.forEach((groupEntries) => {
     const group = document.createElement("section");
     group.className = "month-group";
 
     const title = document.createElement("h4");
     title.className = "month-label";
-    title.textContent = monthLabel;
+    title.textContent = formatMonth(groupEntries[0].date);
     group.append(title);
 
     const grid = document.createElement("div");
     grid.className = "date-grid";
 
-    groupEntries.forEach((entry) => {
+    ["Ma", "Di", "Wo", "Do", "Vr", "Za", "Zo"].forEach((weekday) => {
+      const weekdayLabel = document.createElement("span");
+      weekdayLabel.className = "calendar-weekday";
+      weekdayLabel.textContent = weekday;
+      grid.append(weekdayLabel);
+    });
+
+    const [year, month] = groupEntries[0].date.split("-").map(Number);
+    const firstWeekday = (new Date(year, month - 1, 1).getDay() + 6) % 7;
+    const daysInMonth = new Date(year, month, 0).getDate();
+    const entriesByDay = new Map(
+      groupEntries.map((entry) => [Number(entry.date.slice(8, 10)), entry])
+    );
+
+    for (let offset = 0; offset < firstWeekday; offset += 1) {
+      const emptyCell = document.createElement("span");
+      emptyCell.className = "calendar-day is-empty";
+      emptyCell.setAttribute("aria-hidden", "true");
+      grid.append(emptyCell);
+    }
+
+    for (let day = 1; day <= daysInMonth; day += 1) {
+      const entry = entriesByDay.get(day);
+
+      if (!entry) {
+        const dayCell = document.createElement("span");
+        dayCell.className = "calendar-day is-unavailable";
+        dayCell.textContent = String(day);
+        grid.append(dayCell);
+        continue;
+      }
+
       const button = document.createElement("button");
       button.type = "button";
-      button.className = "date-button";
+      button.className = `date-button ${getStatusClass(entry.status)}`;
       button.dataset.date = entry.date;
+      button.setAttribute("aria-label", `${formatDateLabel(entry.date)}: ${getStatusLabel(entry.status)}`);
 
       button.innerHTML = `
-        <div class="date-topline">
-          <span class="date-label">${formatDateLabel(entry.date)}</span>
-          <span class="status-chip ${getStatusClass(entry.status)}">${getStatusLabel(entry.status)}</span>
-        </div>
+        <span class="date-label">${day}</span>
       `;
 
       button.addEventListener("click", () => handleDateSelection(entry, button));
@@ -266,7 +296,7 @@ function renderDateButtons(entries, preferredDate = null) {
       }
 
       grid.append(button);
-    });
+    }
 
     group.append(grid);
     monthGroups.append(group);
