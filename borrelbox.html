@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Mulish:wght@400;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260617-borrelbox" />
+    <link rel="stylesheet" href="styles.css?v=20260925-footer-instagram" />
     <style>
       .page {
         padding: 40px 0 84px;
@@ -382,20 +382,20 @@
 
       .instagram-callout {
         margin-top: 18px;
-        padding-top: 16px;
+        padding-top: 14px;
         border-top: 1px solid rgba(63, 42, 34, 0.1);
       }
 
       .instagram-callout strong {
         display: block;
         color: var(--ink);
-        font-size: 0.95rem;
+        font-size: 0.9rem;
       }
 
       .instagram-callout p {
-        margin: 5px 0 0;
+        margin: 4px 0 0;
         color: var(--muted);
-        font-size: 0.86rem;
+        font-size: 0.82rem;
         line-height: 1.55;
       }
 
@@ -403,21 +403,23 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        min-height: 42px;
-        margin-top: 12px;
-        padding: 0.7rem 1rem;
+        min-height: 36px;
+        margin-top: 10px;
+        padding: 0.52rem 0.85rem;
+        border: 1px solid rgba(141, 74, 54, 0.32);
         border-radius: 999px;
-        background: var(--instagram);
-        color: #fff;
-        font-size: 0.86rem;
-        font-weight: 800;
+        background: rgba(255, 251, 247, 0.55);
+        color: var(--instagram-dark);
+        font-size: 0.8rem;
+        font-weight: 700;
         text-decoration: none;
-        transition: background 160ms ease, transform 160ms ease;
+        transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
       }
 
       .instagram-button:hover,
       .instagram-button:focus-visible {
-        background: var(--instagram-dark);
+        border-color: rgba(141, 74, 54, 0.5);
+        background: rgba(141, 74, 54, 0.08);
         transform: translateY(-2px);
       }
 
@@ -772,7 +774,6 @@
         <nav class="top-tabs">
           <a class="top-tab is-active" href="index.html">Borrelbox</a>
           <a class="top-tab" href="zakelijk.html">Zakelijk</a>
-          <a class="top-tab" href="weekmenu.html">Weekmenu</a>
           <a class="top-tab" href="over-san.html">Over San</a>
           <a class="top-tab" href="contact.html">Contact</a>
         </nav>
@@ -824,14 +825,14 @@
             </ul>
 
             <div class="instagram-callout">
-              <strong>Meer beelden zien?</strong>
-              <p>Volg @aantafelbijsan op Instagram voor sfeerbeelden en een kijkje achter de schermen.</p>
+              <strong>Meer zien van Aan Tafel bij San?</strong>
+              <p>Volg @aantafelbijsan op Instagram voor meer sfeerbeelden en een kijkje achter de schermen.</p>
               <a
                 class="instagram-button"
                 href="https://www.instagram.com/aantafelbijsan/"
                 target="_blank"
                 rel="noopener noreferrer"
-              >Bekijk Instagram</a>
+              >Naar Instagram</a>
             </div>
           </div>
         </section>
@@ -911,7 +912,12 @@
         </section>
       </section>
 
-      <p class="page-footer">Vers huisgemaakt in Rosmalen, met aandacht bereid door San.</p>
+      <footer class="page-footer">
+        <p>Vers huisgemaakt in Rosmalen, met aandacht bereid door San.</p>
+        <a class="footer-instagram" href="https://www.instagram.com/aantafelbijsan/" target="_blank" rel="noopener noreferrer" aria-label="Aan Tafel bij San op Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><path d="M17.5 6.5h.01" /></svg>
+        </a>
+      </footer>
     </main>
 
     <script src="borrelbox.js?v=20260922-calendar-preview"></script>

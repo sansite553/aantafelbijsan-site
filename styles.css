@@ -342,6 +342,42 @@ h1 {
   box-shadow: 0 14px 24px rgba(141, 74, 54, 0.12);
 }
 
+.page-footer p {
+  margin: 0;
+}
+
+.footer-instagram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin-top: 10px;
+  border: 1px solid rgba(141, 74, 54, 0.2);
+  border-radius: 50%;
+  background: rgba(255, 251, 247, 0.55);
+  color: var(--instagram-dark);
+  text-decoration: none;
+  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.footer-instagram svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.footer-instagram:hover,
+.footer-instagram:focus-visible {
+  border-color: rgba(141, 74, 54, 0.42);
+  background: rgba(141, 74, 54, 0.08);
+  transform: translateY(-2px);
+}
+
 .about-section {
   position: relative;
   margin-top: 28px;
