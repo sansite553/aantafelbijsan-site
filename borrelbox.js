@@ -10,8 +10,8 @@ const fallbackBorrelboxDates = [
   { date: "2026-09-12", status: "closed", remainingBoxes: 0, maxBoxes: 4 },
   { date: "2026-09-19", status: "full", remainingBoxes: 0, maxBoxes: 4 },
   { date: "2026-09-26", status: "available", remainingBoxes: 4, maxBoxes: 4 },
-  { date: "2026-10-03", status: "available", remainingBoxes: 4, maxBoxes: 4 },
-  { date: "2026-10-04", status: "available", remainingBoxes: 4, maxBoxes: 4 },
+  { date: "2026-10-03", status: "closed", remainingBoxes: 0, maxBoxes: 4 },
+  { date: "2026-10-04", status: "closed", remainingBoxes: 0, maxBoxes: 4 },
   { date: "2026-10-11", status: "available", remainingBoxes: 4, maxBoxes: 4 },
   { date: "2026-10-17", status: "available", remainingBoxes: 4, maxBoxes: 4 },
   { date: "2026-10-18", status: "available", remainingBoxes: 4, maxBoxes: 4 },
@@ -22,7 +22,7 @@ const fallbackBorrelboxDates = [
   { date: "2026-11-29", status: "available", remainingBoxes: 4, maxBoxes: 4 }
 ];
 
-const manuallyClosedBorrelboxDates = new Set(["2026-09-12"]);
+const manuallyClosedBorrelboxDates = new Set(["2026-09-12", "2026-10-03", "2026-10-04"]);
 const manuallyFullBorrelboxDates = new Set(["2026-09-19"]);
 
 const monthGroups = document.getElementById("monthGroups");
