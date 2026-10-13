@@ -378,6 +378,119 @@ h1 {
   transform: translateY(-2px);
 }
 
+.cookie-consent {
+  position: fixed;
+  z-index: 1000;
+  right: 18px;
+  bottom: 18px;
+  left: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: min(920px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 251, 247, 0.98);
+  box-shadow: 0 18px 46px rgba(63, 42, 34, 0.2);
+  color: var(--ink);
+}
+
+.cookie-consent-copy {
+  max-width: 570px;
+}
+
+.cookie-consent-copy strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.98rem;
+}
+
+.cookie-consent-copy p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.cookie-consent-copy details {
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.cookie-consent-copy summary {
+  cursor: pointer;
+  color: var(--instagram-dark);
+  font-weight: 700;
+}
+
+.cookie-consent-copy details p {
+  margin-top: 6px;
+  font-size: 0.76rem;
+}
+
+.cookie-consent-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.cookie-consent-actions button,
+.cookie-settings {
+  min-height: 38px;
+  padding: 0.58rem 0.82rem;
+  border: 1px solid rgba(141, 74, 54, 0.25);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--instagram-dark);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.cookie-consent-actions button:hover,
+.cookie-consent-actions button:focus-visible,
+.cookie-settings:hover,
+.cookie-settings:focus-visible {
+  background: rgba(141, 74, 54, 0.08);
+}
+
+.cookie-settings {
+  position: fixed;
+  z-index: 900;
+  bottom: 10px;
+  left: 10px;
+  min-height: 32px;
+  padding: 0.4rem 0.68rem;
+  background: rgba(255, 251, 247, 0.92);
+  font-size: 0.7rem;
+}
+
+.cookie-settings[hidden] {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .cookie-consent {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .cookie-consent-actions {
+    justify-content: stretch;
+  }
+
+  .cookie-consent-actions button {
+    flex: 1 1 140px;
+  }
+}
+
 .about-section {
   position: relative;
   margin-top: 28px;

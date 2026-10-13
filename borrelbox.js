@@ -497,6 +497,13 @@ reservationForm.addEventListener("submit", async (event) => {
       p_quantity: Number(formData.get("quantity"))
     });
 
+    const purchasedQuantity = Number(formData.get("quantity"));
+    window.trackMetaPurchase?.({
+      value: 54.95 * purchasedQuantity,
+      currency: "EUR",
+      quantity: purchasedQuantity
+    });
+
     try {
       await sendReservationNotification(formData, selectedEntry);
     } catch (notificationError) {
