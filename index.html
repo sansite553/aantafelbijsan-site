@@ -688,6 +688,37 @@
         gap: 10px;
       }
 
+      .customer-stories {
+        display: grid;
+        gap: 16px;
+        padding: 28px;
+        border: 1px solid rgba(63, 42, 34, 0.1);
+        border-radius: 8px;
+        background: rgba(255, 250, 245, 0.58);
+      }
+
+      .customer-story {
+        margin: 0;
+      }
+
+      .customer-story blockquote {
+        margin: 0;
+        color: var(--ink);
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.28rem;
+        font-style: italic;
+        line-height: 1.5;
+      }
+
+      .customer-story figcaption {
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
       .borrel-note p {
         margin: 0;
         color: var(--muted);
@@ -891,6 +922,14 @@
               Bedankt voor je reservering. Ik neem contact met je op voor de bevestiging en het betaalverzoek.
             </div>
           </aside>
+        </section>
+
+        <section class="customer-stories" aria-labelledby="customerStoriesTitle">
+          <h3 class="section-title" id="customerStoriesTitle">Wat anderen ervan vonden</h3>
+          <figure class="customer-story">
+            <blockquote>“Het was echt fantastisch. Ook de gasten vonden de box mooi en lekker.”</blockquote>
+            <figcaption>Klant</figcaption>
+          </figure>
         </section>
 
         <section class="borrel-note" aria-labelledby="borrelNoteTitle">
