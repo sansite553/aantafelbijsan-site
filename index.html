@@ -697,8 +697,22 @@
         background: rgba(255, 250, 245, 0.58);
       }
 
+      .customer-stories-track {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+      }
+
+      .customer-stories-track::-webkit-scrollbar {
+        display: none;
+      }
+
       .customer-story {
+        flex: 0 0 100%;
         margin: 0;
+        scroll-snap-align: start;
       }
 
       .customer-story blockquote {
@@ -717,6 +731,26 @@
         font-weight: 800;
         letter-spacing: 0.04em;
         text-transform: uppercase;
+      }
+
+      .customer-story-dots {
+        display: flex;
+        justify-content: center;
+        gap: 9px;
+      }
+
+      .customer-story-dot {
+        width: 9px;
+        height: 9px;
+        padding: 0;
+        border: 1px solid var(--instagram);
+        border-radius: 50%;
+        background: transparent;
+        cursor: pointer;
+      }
+
+      .customer-story-dot.is-active {
+        background: var(--instagram);
       }
 
       .borrel-note p {
@@ -926,10 +960,20 @@
 
         <section class="customer-stories" aria-labelledby="customerStoriesTitle">
           <h3 class="section-title" id="customerStoriesTitle">Wat anderen ervan vonden</h3>
-          <figure class="customer-story">
-            <blockquote>“Het was echt fantastisch. Ook de gasten vonden de box mooi en lekker.”</blockquote>
-            <figcaption>Klant</figcaption>
-          </figure>
+          <div class="customer-stories-track" id="customerStoriesTrack">
+            <figure class="customer-story">
+              <blockquote>“Het was echt fantastisch. Ook de gasten vonden de box mooi en lekker.”</blockquote>
+              <figcaption>Klant</figcaption>
+            </figure>
+            <figure class="customer-story">
+              <blockquote>“Heerlijk genoten van de bourgondische borrelbox van San! Een verrassende variatie aan lekkere kaasjes en worst, gecombineerd met onder andere vers fruit en zwarteknoflookboter. Echt een aanrader!”</blockquote>
+              <figcaption>Proefpersoon</figcaption>
+            </figure>
+          </div>
+          <div class="customer-story-dots" aria-label="Kies een ervaring">
+            <button class="customer-story-dot is-active" type="button" aria-label="Bekijk ervaring 1" aria-current="true"></button>
+            <button class="customer-story-dot" type="button" aria-label="Bekijk ervaring 2"></button>
+          </div>
         </section>
 
         <section class="borrel-note" aria-labelledby="borrelNoteTitle">
@@ -951,6 +995,7 @@
       </footer>
     </main>
 
+    <script src="testimonials.js?v=20261016"></script>
     <script src="borrelbox.js?v=20261013-meta-purchase"></script>
   </body>
 </html>
