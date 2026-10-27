@@ -214,22 +214,29 @@
         font-size: 0.86rem;
       }
 
-      .borrel-price {
-        margin: 26px 0 0;
-        font-family: "Cormorant Garamond", serif;
-        font-size: clamp(2rem, 3vw, 2.8rem);
-        line-height: 1;
-        font-weight: 700;
+      .borrel-versions {
+        display: grid;
+        gap: 14px;
+        margin: 24px 0 0;
+        padding: 18px 0;
+        border-top: 1px solid rgba(63, 42, 34, 0.1);
+        border-bottom: 1px solid rgba(63, 42, 34, 0.1);
       }
 
-      .borrel-price span {
+      .borrel-version strong {
         display: block;
-        margin-top: 6px;
+        color: var(--ink);
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.24rem;
+        line-height: 1.2;
+      }
+
+      .borrel-version span {
+        display: block;
+        margin-top: 3px;
         color: var(--muted);
-        font-family: "Mulish", sans-serif;
         font-size: 0.88rem;
-        font-weight: 600;
-        line-height: 1.4;
+        line-height: 1.5;
       }
 
       .borrel-facts {
@@ -675,6 +682,13 @@
         line-height: 1.5;
       }
 
+      .reservation-total {
+        margin: 0;
+        color: var(--ink);
+        font-size: 0.94rem;
+        font-weight: 800;
+      }
+
       .reserve-button {
         display: inline-flex;
         align-items: center;
@@ -868,7 +882,16 @@
               Een rijk gevulde box om samen van te genieten. Perfect voor een gezellige
               avond aan tafel of een ontspannen borrelmoment samen.
             </p>
-            <p class="borrel-price">€54,95 <span>per box incl. btw</span></p>
+            <div class="borrel-versions" aria-label="Uitvoeringen en prijzen">
+              <div class="borrel-version">
+                <strong>Bourgondisch uit de box – € 54,95</strong>
+                <span>Genieten rechtstreeks uit de luxe borrelbox. Scheur de zijkanten open en klap de box uit, zodat iedereen er gemakkelijk bij kan.</span>
+              </div>
+              <div class="borrel-version">
+                <strong>Bourgondisch aan tafel bij San – € 57,90</strong>
+                <span>Op een uitneembare serveerschaal, direct klaar om op tafel te zetten.</span>
+              </div>
+            </div>
 
             <div class="borrel-facts">
               <div class="fact-chip">
@@ -973,6 +996,17 @@
                 <p class="form-help" id="quantityHelp"></p>
               </div>
 
+              <div class="form-row">
+                <label class="form-label" for="reservationPresentation">Uitvoering</label>
+                <select class="form-select" id="reservationPresentation" name="presentation" required>
+                  <option value="box">Bourgondisch uit de box – € 54,95</option>
+                  <option value="table">Bourgondisch aan tafel bij San – € 57,90</option>
+                </select>
+                <p class="form-help" id="presentationHelp">Scheur de zijkanten open en klap de box uit, zodat iedereen er gemakkelijk bij kan.</p>
+              </div>
+
+              <p class="reservation-total" id="reservationTotal">Totaal: € 54,95</p>
+
               <button class="reserve-button" id="reservationSubmit" type="submit">Reservering versturen</button>
             </form>
 
@@ -1023,6 +1057,6 @@
     </main>
 
     <script src="testimonials.js?v=20261016"></script>
-    <script src="borrelbox.js?v=20261013-meta-purchase"></script>
+    <script src="borrelbox.js?v=20261027-presentation-3"></script>
   </body>
 </html>

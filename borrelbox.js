@@ -33,6 +33,20 @@ const reservationConfirmation = document.getElementById("reservationConfirmation
 const reservationSubmit = document.getElementById("reservationSubmit");
 const quantitySelect = document.getElementById("reservationQuantity");
 const quantityHelp = document.getElementById("quantityHelp");
+const presentationSelect = document.getElementById("reservationPresentation");
+const presentationHelp = document.getElementById("presentationHelp");
+const reservationTotal = document.getElementById("reservationTotal");
+
+const presentationOptions = {
+  box: {
+    label: "Bourgondisch uit de box",
+    price: 54.95
+  },
+  table: {
+    label: "Bourgondisch aan tafel bij San",
+    price: 57.9
+  }
+};
 
 let selectedEntry = null;
 let borrelboxDates = [];
@@ -185,6 +199,28 @@ function updateQuantityOptions(entry) {
     maxSelectable > 0
       ? `Je kunt voor deze datum maximaal ${maxSelectable} box${maxSelectable === 1 ? "" : "en"} reserveren.`
       : "Voor deze datum zijn geen boxen meer beschikbaar.";
+  updateReservationTotal();
+}
+
+function getSelectedPresentation() {
+  return presentationOptions[presentationSelect?.value] || presentationOptions.box;
+}
+
+function updateReservationTotal() {
+  if (!reservationTotal) return;
+
+  const quantity = Number(quantitySelect?.value) || 1;
+  const presentation = getSelectedPresentation();
+  const total = presentation.price * quantity;
+  if (presentationHelp) {
+    presentationHelp.textContent = presentationSelect.value === "table"
+      ? "Op een uitneembare serveerschaal, direct klaar om op tafel te zetten."
+      : "Scheur de zijkanten open en klap de box uit, zodat iedereen er gemakkelijk bij kan.";
+  }
+  reservationTotal.textContent = `Totaal: ${new Intl.NumberFormat("nl-NL", {
+    style: "currency",
+    currency: "EUR"
+  }).format(total)}`;
 }
 
 function updateReservationPanel(entry) {
@@ -401,6 +437,8 @@ async function sendReservationNotification(formData, entry) {
   payload.append("Gekozen datum", formatDateLabel(entry.date));
   payload.append("Status", getStatusLabel(entry.status));
   payload.append("Aantal boxen", formData.get("quantity"));
+  payload.append("Uitvoering", getSelectedPresentation().label);
+  payload.append("Prijs per box", `€ ${getSelectedPresentation().price.toFixed(2).replace(".", ",")}`);
   payload.append("Naam", formData.get("name"));
   payload.append("E-mailadres", formData.get("email"));
   payload.append("Telefoonnummer", formData.get("phone"));
@@ -431,7 +469,9 @@ async function sendCustomerConfirmationEmail(formData, entry) {
       customerName: formData.get("name"),
       customerEmail: formData.get("email"),
       serviceDate: entry.date,
-      quantity: Number(formData.get("quantity"))
+      quantity: Number(formData.get("quantity")),
+      presentation: getSelectedPresentation().label,
+      totalPrice: getSelectedPresentation().price * Number(formData.get("quantity"))
     })
   });
 
@@ -498,8 +538,9 @@ reservationForm.addEventListener("submit", async (event) => {
     });
 
     const purchasedQuantity = Number(formData.get("quantity"));
+    const selectedPresentation = getSelectedPresentation();
     window.trackMetaPurchase?.({
-      value: 54.95 * purchasedQuantity,
+      value: selectedPresentation.price * purchasedQuantity,
       currency: "EUR",
       quantity: purchasedQuantity
     });
@@ -539,4 +580,6 @@ reservationForm.addEventListener("submit", async (event) => {
 });
 
 setupBorrelPromo();
+quantitySelect?.addEventListener("change", updateReservationTotal);
+presentationSelect?.addEventListener("change", updateReservationTotal);
 loadBorrelboxDates();
